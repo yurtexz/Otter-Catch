@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccp3m3uo5l5ha"]
+
+[ext_resource type="Texture2D" uid="uid://2okwk8wmg18e" path="res://Assets/Campus-Guayacán-UCN-Coquimbo.jpeg" id="1_vaq5q"]
+[ext_resource type="PackedScene" uid="uid://wr2abnhdoyjl" path="res://muelle/muelle.tscn" id="2_uxpve"]
+[ext_resource type="PackedScene" uid="uid://dxws6g8b850u2" path="res://Nutria/nutria.tscn" id="3_mb7h4"]
+
+[node name="mundo" type="Node2D"]
+
+[node name="Muelle" type="Sprite2D" parent="."]
+position = Vector2(577.5, 324.5)
+scale = Vector2(1.08333, 0.955947)
+texture = ExtResource("1_vaq5q")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_uxpve")]
+position = Vector2(573, 407)
+
+[node name="Nutria" parent="." instance=ExtResource("3_mb7h4")]
+position = Vector2(793, 326)
