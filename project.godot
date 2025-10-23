@@ -15,6 +15,11 @@ run/main_scene="uid://ccp3m3uo5l5ha"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1908
+window/size/viewport_height=994
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

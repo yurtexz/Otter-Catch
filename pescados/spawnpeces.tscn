@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://keml5b8qqg1e"]
+
+[ext_resource type="Script" uid="uid://c8n838tv2aekr" path="res://pescados/spawn_de_peces.gd" id="1_8m5j1"]
+
+[node name="spawnpeces" type="Node2D"]
+script = ExtResource("1_8m5j1")
