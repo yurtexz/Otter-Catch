@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxu0y38vh5doy"
-path="res://.godot/imported/Cerveza cristal.png-fd69d25edcb27e56ac3e016c5f30a93c.ctex"
+uid="uid://dsensi41a2qgq"
+path="res://.godot/imported/pixilart-sprite (1).png.png-4275820b13f33b51b535caa0bcd4ffcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cerveza cristal.png"
-dest_files=["res://.godot/imported/Cerveza cristal.png-fd69d25edcb27e56ac3e016c5f30a93c.ctex"]
+source_file="res://Assets/FONDOS/pixilart-sprite (1).png.png"
+dest_files=["res://.godot/imported/pixilart-sprite (1).png.png-4275820b13f33b51b535caa0bcd4ffcc.ctex"]
 
 [params]
 

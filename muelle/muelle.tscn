@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wr2abnhdoyjl"]
 
-[ext_resource type="Texture2D" uid="uid://drnjn41hf6ute" path="res://Assets/muelle.png" id="1_p8gpi"]
+[ext_resource type="Texture2D" uid="uid://drnjn41hf6ute" path="res://Assets/FONDOS/muelle.png" id="1_p8gpi"]
 
 [node name="StaticBody2D" type="StaticBody2D"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drnjn41hf6ute"
-path="res://.godot/imported/muelle.png-83a522df6a1f87cf699f0568733ade28.ctex"
+uid="uid://8vmg1q2112vd"
+path="res://.godot/imported/pezPlata.png-65621d6c153a47772ff24946dfc4f4d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/muelle.png"
-dest_files=["res://.godot/imported/muelle.png-83a522df6a1f87cf699f0568733ade28.ctex"]
+source_file="res://Assets/Peces/pezPlata.png"
+dest_files=["res://.godot/imported/pezPlata.png-65621d6c153a47772ff24946dfc4f4d0.ctex"]
 
 [params]
 

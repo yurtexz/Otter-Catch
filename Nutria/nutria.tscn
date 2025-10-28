@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxws6g8b850u2"]
 
 [ext_resource type="Script" uid="uid://cn6al2ttu7nwi" path="res://Nutria/nutria.gd" id="1_r5o6j"]
-[ext_resource type="Texture2D" uid="uid://bshsstqisp30x" path="res://Assets/Ottis.png" id="2_b55vw"]
+[ext_resource type="Texture2D" uid="uid://bshsstqisp30x" path="res://Assets/nutria/Ottis.png" id="2_b55vw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5o6j"]
 radius = 56.0

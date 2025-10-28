@@ -10,15 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Juego"
+config/name="Otter catch"
 run/main_scene="uid://ccp3m3uo5l5ha"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1908
-window/size/viewport_height=994
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/resizable=false
 
 [rendering]
 

@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3w6ssdqe82rd"]
+[gd_scene load_steps=4 format=3 uid="uid://c3w6ssdqe82rd"]
 
 [ext_resource type="Script" uid="uid://dg3klaj2u5ejj" path="res://pescados/pescado.gd" id="1_0sdrm"]
-[ext_resource type="Texture2D" uid="uid://8vmg1q2112vd" path="res://Assets/pezPlata.png" id="2_es8ds"]
+[ext_resource type="Texture2D" uid="uid://8vmg1q2112vd" path="res://Assets/Peces/pezPlata.png" id="2_es8ds"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_es8ds"]
+radius = 31.0
+height = 62.0
 
 [node name="pescado" type="Node2D"]
 script = ExtResource("1_0sdrm")
@@ -10,3 +14,9 @@ script = ExtResource("1_0sdrm")
 position = Vector2(10, -1.00001)
 scale = Vector2(0.0559896, 0.0582682)
 texture = ExtResource("2_es8ds")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(29, 0)
+shape = SubResource("CapsuleShape2D_es8ds")
