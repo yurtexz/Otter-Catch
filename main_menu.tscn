@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://damctdqjyln"]
+[gd_scene load_steps=8 format=3 uid="uid://damctdqjyln"]
 
+[ext_resource type="Script" path="res://main_menu.gd" id="1_main"]
 [ext_resource type="Texture2D" uid="uid://f1m6q0iht3r6" path="res://Assets/ucn_bg.png" id="1_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://57dxdlhd5s43" path="res://Assets/ottercatchpng.png" id="2_jix8l"]
 [ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="3_glbon"]
@@ -29,6 +30,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_main")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

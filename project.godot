@@ -10,13 +10,8 @@ config_version=5
 
 [application]
 
-<<<<<<< HEAD
-config/name="Juego"
-run/main_scene="uid://ccp3m3uo5l5ha"
-=======
-config/name="Otter Catch Prueba"
-run/main_scene="res://Mundo/node_2d.tscn"
->>>>>>> prueba2
+config/name="Otter Catch"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
