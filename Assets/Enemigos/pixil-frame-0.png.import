@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bshsstqisp30x"
-path="res://.godot/imported/Ottis.png-41e9954d86043f46ccec2ee1a5fcf546.ctex"
+uid="uid://ca8281w45r515"
+path="res://.godot/imported/pixil-frame-0.png-a27d457211b9d073341eb1cff3e7d52a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ottis.png"
-dest_files=["res://.godot/imported/Ottis.png-41e9954d86043f46ccec2ee1a5fcf546.ctex"]
+source_file="res://Assets/Enemigos/pixil-frame-0.png"
+dest_files=["res://.godot/imported/pixil-frame-0.png-a27d457211b9d073341eb1cff3e7d52a.ctex"]
 
 [params]
 

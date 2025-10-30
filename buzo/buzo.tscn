@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkwu22rswbaqa"]
+
+[ext_resource type="Texture2D" uid="uid://ca8281w45r515" path="res://Assets/Enemigos/pixil-frame-0.png" id="1_ksg0b"]
+[ext_resource type="Texture2D" uid="uid://bqufte8ipunio" path="res://Assets/Enemigos/pixil-frame-1.png" id="2_fnrqs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2egtq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ksg0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fnrqs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Buzo" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2egtq")
+frame_progress = 0.172438

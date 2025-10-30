@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 @onready var rope: Line2D = $Cuerda
-var rope_start = Vector2(90,-40)
-var rope_end = Vector2(90,50)
-var lane_positions = [172, 379, 579, 793]
+var rope_start = Vector2(160,-37)
+var rope_end = Vector2(160,50)
+var lane_positions = [160, 650, 1000, 1530]
 var current_lane = 0
 var touch_startx = Vector2.ZERO
 var touch_endx = Vector2.ZERO
@@ -12,7 +12,7 @@ var touch_endy = Vector2.ZERO
 
 func _ready():
 	position.x = lane_positions[current_lane]
-	position.y = 326
+	position.y = 275
 	update_rope()
 
 func _input(event):
@@ -32,10 +32,10 @@ func _input(event):
 			move_lane(-1)
 		
 		if deltay > 100:
-			extend_rope(50)
+			extend_rope(100)
 			
 		elif deltay < -100:
-			extend_rope(-50)
+			extend_rope(-100)
 func move_lane(direction: int):
 	current_lane = clamp(current_lane + direction,0,lane_positions.size() -1)
 	var target_x =lane_positions[current_lane]

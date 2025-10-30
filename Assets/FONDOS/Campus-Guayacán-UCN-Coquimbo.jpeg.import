@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxu0y38vh5doy"
-path="res://.godot/imported/Cerveza cristal.png-fd69d25edcb27e56ac3e016c5f30a93c.ctex"
+uid="uid://2okwk8wmg18e"
+path="res://.godot/imported/Campus-Guayacán-UCN-Coquimbo.jpeg-85ecbd1c184d43a03545f6687d19cb71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cerveza cristal.png"
-dest_files=["res://.godot/imported/Cerveza cristal.png-fd69d25edcb27e56ac3e016c5f30a93c.ctex"]
+source_file="res://Assets/FONDOS/Campus-Guayacán-UCN-Coquimbo.jpeg"
+dest_files=["res://.godot/imported/Campus-Guayacán-UCN-Coquimbo.jpeg-85ecbd1c184d43a03545f6687d19cb71.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2okwk8wmg18e"
-path="res://.godot/imported/Campus-Guayacán-UCN-Coquimbo.jpeg-f43301e0656aa95ee16e79e41175b96f.ctex"
+uid="uid://8vmg1q2112vd"
+path="res://.godot/imported/pezPlata.png-65621d6c153a47772ff24946dfc4f4d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Campus-Guayacán-UCN-Coquimbo.jpeg"
-dest_files=["res://.godot/imported/Campus-Guayacán-UCN-Coquimbo.jpeg-f43301e0656aa95ee16e79e41175b96f.ctex"]
+source_file="res://Assets/Peces/pezPlata.png"
+dest_files=["res://.godot/imported/pezPlata.png-65621d6c153a47772ff24946dfc4f4d0.ctex"]
 
 [params]
 
