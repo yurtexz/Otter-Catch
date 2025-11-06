@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://sfer2opr7fi4"]
+
+[ext_resource type="Script" uid="uid://cmq4n5013hxwg" path="res://Menu/intro.gd" id="1_en6gb"]
+[ext_resource type="Texture2D" uid="uid://ba7rmujbrgag4" path="res://Assets/FONDOS/ucn_bg.png" id="2_en6gb"]
+
+[sub_resource type="Animation" id="Animation_vyp3k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_en6gb"]
+resource_name = "fade in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q2fmm"]
+resource_name = "fade out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2fmm"]
+_data = {
+&"RESET": SubResource("Animation_vyp3k"),
+&"fade in": SubResource("Animation_en6gb"),
+&"fade out": SubResource("Animation_q2fmm")
+}
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_en6gb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960.49994, 539.5)
+scale = Vector2(1.4992188, 1.34875)
+texture = ExtResource("2_en6gb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -131.0
+offset_top = -81.0
+offset_right = 2089.0
+offset_bottom = 1186.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q2fmm")
+}

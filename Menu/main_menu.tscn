@@ -1,0 +1,206 @@
+[gd_scene load_steps=13 format=3 uid="uid://damctdqjyln"]
+
+[ext_resource type="Texture2D" uid="uid://f1m6q0iht3r6" path="res://Assets/ucn_bg.png" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://p4od6mcjtl0a" path="res://Menu/main_menu.gd" id="1_main"]
+[ext_resource type="Texture2D" uid="uid://57dxdlhd5s43" path="res://Assets/ottercatchpng.png" id="2_jix8l"]
+[ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="3_glbon"]
+[ext_resource type="Script" uid="uid://b77elqo2d3tsf" path="res://Menu/audio_slider.gd" id="5_fw3rq"]
+[ext_resource type="Script" uid="uid://dpx2h4oo4yxoi" path="res://Menu/sfx_slider.gd" id="6_rw3mj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
+texture = ExtResource("1_fu7sn")
+modulate_color = Color(0.811765, 0.811765, 0.811765, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qe12f"]
+texture = ExtResource("2_jix8l")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qtwp"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ohgnh"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fw3rq"]
+color = Color(0.8117647, 0.38431373, 0, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rw3mj"]
+color = Color(0.8117647, 0.38431373, 0, 1)
+thickness = 6
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -324.0
+offset_right = 578.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nlkkf")
+
+[node name="Panel2" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 23.0
+offset_top = -184.0
+offset_right = 1174.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qe12f")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = -280.0
+offset_top = 44.0
+offset_right = 288.0
+offset_bottom = 228.0
+theme_override_constants/separation = 17
+
+[node name="Button" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_8qtwp")
+text = "Start"
+
+[node name="Button2" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_8qtwp")
+text = "Settings"
+
+[node name="Button3" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_8qtwp")
+text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="Options" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -478.0
+offset_top = -39.0
+offset_right = 477.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 88.0
+offset_top = 6.0
+offset_right = -75.5
+offset_bottom = 37.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="back_settings" type="Button" parent="Options/Label"]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 14.0
+offset_right = 866.0
+offset_bottom = 64.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_8qtwp")
+text = "X"
+flat = true
+
+[node name="Audio_slider" type="HSlider" parent="Options/Label"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 88.0
+offset_right = 330.0
+offset_bottom = 149.0
+theme_override_styles/slider = SubResource("StyleBoxLine_ohgnh")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_fw3rq")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rw3mj")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_fw3rq")
+audio_bus_name = "Music"
+
+[node name="SFX_slider" type="HSlider" parent="Options/Label"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 234.0
+offset_right = 328.0
+offset_bottom = 295.0
+theme_override_styles/slider = SubResource("StyleBoxLine_ohgnh")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_fw3rq")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rw3mj")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("6_rw3mj")
+audio_bus_name = "SoundFX"
+
+[node name="musicvolume_label" type="Label" parent="Options/Label"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 31.0
+offset_right = 219.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 32
+text = "Music volume"
+
+[node name="musicvolume_label2" type="Label" parent="Options/Label"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 182.0
+offset_right = 219.0
+offset_bottom = 225.0
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 32
+text = "SFX volume"
+
+[connection signal="pressed" from="Options/Label/back_settings" to="." method="_on_back_settings_pressed"]
+[connection signal="value_changed" from="Options/Label/Audio_slider" to="Options/Label/Audio_slider" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/Label/SFX_slider" to="Options/Label/SFX_slider" method="_on_value_changed"]
