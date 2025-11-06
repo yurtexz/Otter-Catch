@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var max_vidas: int = 3
+var vidas: int
 @onready var rope: Line2D = $Cuerda
 var rope_start = Vector2(160,-37)
 var rope_end = Vector2(160,50)
@@ -9,11 +11,19 @@ var touch_startx = Vector2.ZERO
 var touch_endx = Vector2.ZERO
 var touch_starty = Vector2.ZERO
 var touch_endy = Vector2.ZERO
+var life = 100
+
+@onready var barra_vida = $TextureProgressBar
 
 func _ready():
 	position.x = lane_positions[current_lane]
 	position.y = 275
+	#healthBar.value = life
 	update_rope()
+	vidas = max_vidas
+	add_to_group("jugador")
+	barra_vida.max_value = max_vidas
+	barra_vida.value = vidas
 
 func _input(event):
 	
@@ -53,3 +63,15 @@ func update_rope() -> void:
 	var target_y = rope_end
 	var tweenRope = create_tween()
 	tweenRope.tween_property(rope,"position:y",target_y,0.2)
+
+func recibir_dano(cantidad: int):
+	vidas -= cantidad
+	barra_vida.value = vidas
+	print("Jugador recibió daño. Vidas restantes:", vidas)
+
+	if vidas <= 0:
+		perder()
+
+func perder():
+	print("💀 El jugador perdió!")
+	queue_free()  # o cambia a escena de derrota, etc.

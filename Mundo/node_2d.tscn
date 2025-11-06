@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccp3m3uo5l5ha"]
+[gd_scene load_steps=10 format=3 uid="uid://ccp3m3uo5l5ha"]
 
 [ext_resource type="Texture2D" uid="uid://dsensi41a2qgq" path="res://Assets/FONDOS/pixilart-sprite (1).png.png" id="1_wvbum"]
 [ext_resource type="PackedScene" uid="uid://dxws6g8b850u2" path="res://Nutria/nutria.tscn" id="3_mb7h4"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c3w6ssdqe82rd" path="res://pescados/pescado.tscn" id="5_wvbum"]
 [ext_resource type="Texture2D" uid="uid://8vmg1q2112vd" path="res://Assets/Peces/pezPlata.png" id="6_6ih0b"]
 [ext_resource type="Texture2D" uid="uid://drnjn41hf6ute" path="res://Assets/FONDOS/muelle.png" id="6_wvbum"]
+[ext_resource type="PackedScene" uid="uid://4pgm3gpk6cwm" path="res://patoscene/PatoEstatico.tscn" id="7_6ih0b"]
+[ext_resource type="PackedScene" uid="uid://bl0qtv0pnmbil" path="res://patoscene/PatoPerseguidor.tscn" id="8_rdapq"]
+[ext_resource type="PackedScene" uid="uid://bxarbfq6ipvun" path="res://Global.tscn" id="9_oswjq"]
 
 [node name="mundo" type="Node2D"]
 
@@ -26,3 +29,11 @@ position = Vector2(472, 280)
 position = Vector2(952, 512)
 fish_scene = ExtResource("5_wvbum")
 fish_skins = Array[Texture2D]([ExtResource("6_6ih0b")])
+
+[node name="PatoEstatico" parent="." instance=ExtResource("7_6ih0b")]
+position = Vector2(143, 113)
+
+[node name="PatoPerseguidor" parent="." instance=ExtResource("8_rdapq")]
+position = Vector2(143, 40)
+
+[node name="Node" parent="." instance=ExtResource("9_oswjq")]

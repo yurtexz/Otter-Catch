@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2okwk8wmg18e"
-path="res://.godot/imported/Campus-GuayacÃ¡n-UCN-Coquimbo.jpeg-e18a5b075c2ea8fb3a81e2868e04abcb.ctex"
+uid="uid://c0m5lgvoc1obk"
+path="res://.godot/imported/Proyectil.png-e64bf7da663e59bf8b484b232e8fd437.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Campus-GuayacÃ¡n-UCN-Coquimbo.jpeg"
-dest_files=["res://.godot/imported/Campus-GuayacÃ¡n-UCN-Coquimbo.jpeg-e18a5b075c2ea8fb3a81e2868e04abcb.ctex"]
+source_file="res://Assets/Patos/Proyectil.png"
+dest_files=["res://.godot/imported/Proyectil.png-e64bf7da663e59bf8b484b232e8fd437.ctex"]
 
 [params]
 

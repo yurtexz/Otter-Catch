@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://qh1xv3v0uaa0"]
+
+[ext_resource type="Script" uid="uid://cei3gg845pmxu" path="res://patoscene/Pelotita.gd" id="1_dg0la"]
+[ext_resource type="Texture2D" uid="uid://c0m5lgvoc1obk" path="res://Assets/Patos/Proyectil.png" id="1_jnbyh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dg0la"]
+radius = 6.0
+
+[node name="Pelotita" type="RigidBody2D"]
+collision_layer = 4
+script = ExtResource("1_dg0la")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jnbyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -1)
+shape = SubResource("CircleShape2D_dg0la")
