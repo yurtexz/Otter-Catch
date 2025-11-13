@@ -21,8 +21,9 @@ texture = ExtResource("6_wvbum")
 
 [node name="Nutria" parent="." instance=ExtResource("3_mb7h4")]
 position = Vector2(472, 280)
+script = null
 
 [node name="spawnpeces" parent="." instance=ExtResource("4_uxpve")]
-position = Vector2(952, 512)
+position = Vector2(960, 512)
 fish_scene = ExtResource("5_wvbum")
 fish_skins = Array[Texture2D]([ExtResource("6_6ih0b")])
