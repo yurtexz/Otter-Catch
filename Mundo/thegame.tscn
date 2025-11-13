@@ -1,0 +1,153 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0md2npfael"]
+
+[ext_resource type="Texture2D" uid="uid://coe7g3xy36n1v" path="res://Assets/FONDOS/fajrbackground.png" id="1_bkatu"]
+[ext_resource type="Texture2D" uid="uid://dsensi41a2qgq" path="res://Assets/FONDOS/pixilart-sprite (1).png.png" id="2_p78oe"]
+[ext_resource type="Texture2D" uid="uid://drnjn41hf6ute" path="res://Assets/FONDOS/muelle.png" id="3_ce1v2"]
+[ext_resource type="Script" uid="uid://naf3ap7bxhj1" path="res://Mundo/otter.gd" id="4_n4c2b"]
+[ext_resource type="Script" uid="uid://btte01uej7adl" path="res://Mundo/rod.gd" id="5_ce1v2"]
+[ext_resource type="Texture2D" uid="uid://bshsstqisp30x" path="res://Assets/nutria/Ottis.png" id="5_lj3nr"]
+[ext_resource type="Texture2D" uid="uid://scncyqqnfmm1" path="res://Assets/nutria/carnada.png" id="6_n4c2b"]
+[ext_resource type="Texture2D" uid="uid://c166p8nvtn5r3" path="res://Assets/FONDOS/muellebajo.png" id="8_n4c2b"]
+[ext_resource type="Script" uid="uid://dmv1w1q13j4n4" path="res://Mundo/spawner.gd" id="9_lj3nr"]
+[ext_resource type="PackedScene" uid="uid://bpl7ro26tg2cy" path="res://Mundo/Fish.tscn" id="10_fig0l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vaq5q"]
+radius = 12.0
+
+[node name="Main" type="Node2D"]
+scale = Vector2(0.366809, 0.510678)
+
+[node name="FondoLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Mar" type="TextureRect" parent="FondoLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bkatu")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="FondoLayer"]
+anchors_preset = -1
+anchor_left = -0.481
+anchor_top = -0.494
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 173.16
+offset_top = 725.16
+offset_right = 180.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_p78oe")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Mundo" type="Node2D" parent="."]
+
+[node name="Muellebajo" type="Sprite2D" parent="Mundo"]
+z_index = 80
+position = Vector2(628.392, 793.063)
+scale = Vector2(2.0801, 1.11043)
+texture = ExtResource("8_n4c2b")
+
+[node name="Muelle" type="Sprite2D" parent="Mundo"]
+position = Vector2(523.433, 773.482)
+scale = Vector2(0.815958, 0.36982)
+texture = ExtResource("3_ce1v2")
+
+[node name="Holes" type="Node2D" parent="Mundo"]
+position = Vector2(242.633, 571.789)
+
+[node name="Hole0" type="Marker2D" parent="Mundo/Holes"]
+position = Vector2(2.72623, 158.613)
+
+[node name="Hole1" type="Marker2D" parent="Mundo/Holes"]
+position = Vector2(269.895, 158.613)
+
+[node name="Hole2" type="Marker2D" parent="Mundo/Holes"]
+position = Vector2(539.79, 160.571)
+
+[node name="Camera2D" type="Camera2D" parent="Mundo"]
+position = Vector2(490.719, 622.702)
+
+[node name="Otter" type="CharacterBody2D" parent="Mundo"]
+z_index = 10
+position = Vector2(0, 1.19209e-07)
+script = ExtResource("4_n4c2b")
+holes_path = NodePath("../Holes")
+
+[node name="Rod" type="Node2D" parent="Mundo/Otter"]
+position = Vector2(0, -1.19211e-07)
+script = ExtResource("5_ce1v2")
+
+[node name="Line" type="Line2D" parent="Mundo/Otter/Rod"]
+z_index = 8
+width = 3.0
+antialiased = true
+
+[node name="Bait" type="Area2D" parent="Mundo/Otter/Rod"]
+show_behind_parent = true
+z_index = 11
+position = Vector2(70.8816, 591.371)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Otter/Rod/Bait"]
+position = Vector2(2.72628, 27.4145)
+shape = SubResource("CircleShape2D_vaq5q")
+
+[node name="BaitSprite" type="Sprite2D" parent="Mundo/Otter/Rod/Bait"]
+position = Vector2(4.9954e-05, 21.54)
+scale = Vector2(0.79818, 0.683578)
+texture = ExtResource("6_n4c2b")
+
+[node name="Origin" type="Marker2D" parent="Mundo/Otter/Rod"]
+position = Vector2(70.8816, 589.413)
+
+[node name="Sprite2D" type="Sprite2D" parent="Mundo/Otter"]
+position = Vector2(166.299, 638.367)
+scale = Vector2(0.242808, 0.149605)
+texture = ExtResource("5_lj3nr")
+flip_h = true
+
+[node name="Lanes" type="Node2D" parent="Mundo"]
+position = Vector2(460.73, 836.143)
+
+[node name="Lane0" type="Marker2D" parent="Mundo/Lanes"]
+position = Vector2(-1.52588e-05, 64.62)
+
+[node name="Lane1" type="Marker2D" parent="Mundo/Lanes"]
+position = Vector2(2.72621, 186.027)
+
+[node name="Lane2" type="Marker2D" parent="Mundo/Lanes"]
+position = Vector2(2.72624, 309.393)
+
+[node name="Spawner" type="Node2D" parent="Mundo"]
+z_index = 80
+position = Vector2(458.004, 828.311)
+script = ExtResource("9_lj3nr")
+fish_scene = ExtResource("10_fig0l")
+lanes_path = NodePath("../Lanes")
+
+[node name="Timer" type="Timer" parent="Mundo/Spawner"]
+wait_time = 1.5
+autostart = true
+
+[node name="StandY" type="Marker2D" parent="Mundo"]
+position = Vector2(509.802, 701.029)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UILayer"]
+layout_mode = 3
+anchor_left = -0.263
+anchor_top = 0.168
+anchor_right = -0.263
+anchor_bottom = 0.168
+offset_left = 22.68
+offset_top = 53.48
+offset_right = 62.68
+offset_bottom = 93.48

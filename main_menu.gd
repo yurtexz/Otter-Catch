@@ -4,7 +4,7 @@ extends Control
 ## Gestiona la navegación entre menú y juego
 
 # Ruta de la escena del juego
-const GAME_SCENE = "res://Mundo/node_2d.tscn"
+const GAME_SCENE = "res://Mundo/thegame.tscn"
 
 # Referencias a los botones
 @onready var start_button = $VBoxContainer/Button

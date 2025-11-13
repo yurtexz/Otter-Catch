@@ -28,21 +28,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -5.0
+offset_right = -74.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_main")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -575.0
-offset_top = -324.0
-offset_right = 578.0
-offset_bottom = 323.0
+anchors_preset = -1
+offset_left = -295.0
+offset_top = -323.0
+offset_right = 406.0
+offset_bottom = 334.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_nlkkf")
@@ -50,18 +50,18 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_nlkkf")
 [node name="Panel2" type="Panel" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 23.0
-offset_top = -184.0
-offset_right = 1174.0
-offset_bottom = 512.0
+offset_left = 188.0
+offset_top = -18.0
+offset_right = 604.0
+offset_bottom = 266.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_qe12f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-offset_left = -280.0
-offset_top = 44.0
-offset_right = 288.0
-offset_bottom = 228.0
+offset_left = -80.0
+offset_top = -110.0
+offset_right = 232.0
+offset_bottom = 74.0
 theme_override_constants/separation = 17
 
 [node name="Button" type="Button" parent="VBoxContainer"]
