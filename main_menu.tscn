@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://damctdqjyln"]
+[gd_scene load_steps=9 format=3 uid="uid://desl817kqqwf6"]
 
 [ext_resource type="Texture2D" uid="uid://f1m6q0iht3r6" path="res://Assets/ucn_bg.png" id="1_fu7sn"]
 [ext_resource type="Script" uid="uid://p4od6mcjtl0a" path="res://main_menu.gd" id="1_main"]
@@ -13,6 +13,15 @@ modulate_color = Color(0.811765, 0.811765, 0.811765, 1)
 texture = ExtResource("2_jix8l")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qtwp"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -73,6 +82,15 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_8qtwp")
 text = "Start"
 
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_glbon")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+text = "Multiplayer"
+
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -90,3 +108,5 @@ theme_override_fonts/font = ExtResource("3_glbon")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_8qtwp")
 text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_multyplayer_pressed"]

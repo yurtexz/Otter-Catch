@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0md2npfael"]
+[gd_scene load_steps=12 format=3 uid="uid://bifi3v8sd7s1e"]
 
 [ext_resource type="Texture2D" uid="uid://coe7g3xy36n1v" path="res://Assets/FONDOS/fajrbackground.png" id="1_bkatu"]
-[ext_resource type="Texture2D" uid="uid://dsensi41a2qgq" path="res://Assets/FONDOS/pixilart-sprite (1).png.png" id="2_p78oe"]
+[ext_resource type="Texture2D" uid="uid://biv1wytkw6cld" path="res://Assets/FONDOS/Escena terminada.png" id="2_fig0l"]
 [ext_resource type="Texture2D" uid="uid://drnjn41hf6ute" path="res://Assets/FONDOS/muelle.png" id="3_ce1v2"]
-[ext_resource type="Script" uid="uid://naf3ap7bxhj1" path="res://Mundo/otter.gd" id="4_n4c2b"]
-[ext_resource type="Script" uid="uid://btte01uej7adl" path="res://Mundo/rod.gd" id="5_ce1v2"]
+[ext_resource type="Script" path="res://Mundo/otter.gd" id="4_n4c2b"]
+[ext_resource type="Script" path="res://Mundo/rod.gd" id="5_ce1v2"]
 [ext_resource type="Texture2D" uid="uid://bshsstqisp30x" path="res://Assets/nutria/Ottis.png" id="5_lj3nr"]
 [ext_resource type="Texture2D" uid="uid://scncyqqnfmm1" path="res://Assets/nutria/carnada.png" id="6_n4c2b"]
 [ext_resource type="Texture2D" uid="uid://c166p8nvtn5r3" path="res://Assets/FONDOS/muellebajo.png" id="8_n4c2b"]
@@ -38,12 +38,12 @@ anchor_top = -0.494
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 173.16
-offset_top = 725.16
+offset_top = 724.16
 offset_right = 180.0
-offset_bottom = 316.0
+offset_bottom = 323.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("2_p78oe")
+texture = ExtResource("2_fig0l")
 expand_mode = 5
 stretch_mode = 6
 
