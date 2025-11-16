@@ -1,36 +1,33 @@
 extends Area2D
-# Fish.gd — pez que nada en horizontal y se destruye al salir
 
-@export var speed: float = 80.0
+@export var speed := 80.0
 
-var direction: Vector2 = Vector2.LEFT
+var direction: Vector2 = Vector2.ZERO
 
-@onready var sprite: Sprite2D = get_node_or_null("Sprite2D")
+@onready var sprite: Sprite2D = $Sprite2D
 
 
 func _ready() -> void:
-	if sprite == null:
-		push_warning("Fish.gd: no encontré hijo 'Sprite2D'.")
-	else:
-		# Color normal
-		sprite.self_modulate = Color(1, 1, 1)
+	# Por si el spawner no llamó a set_move_from_left, por defecto va a la derecha
+	if direction == Vector2.ZERO:
+		direction = Vector2.RIGHT
+
+
+func set_move_from_left(from_left: bool) -> void:
+	# Si aparece desde la izquierda, se mueve a la derecha.
+	# Si aparece desde la derecha, se mueve a la izquierda.
+	direction = Vector2.RIGHT if from_left else Vector2.LEFT
+
+	# Voltear sprite para que mire en el sentido de avance
+	if sprite:
+		sprite.flip_h = not from_left  # ajusta si tu sprite está al revés
 
 
 func _process(delta: float) -> void:
-	# Movimiento horizontal
+	# Mover según la dirección
 	position += direction * speed * delta
 
-	# Si sale de la pantalla por los lados, se destruye
-	var vp_size: Vector2 = get_viewport().get_visible_rect().size
-	if global_position.x < -100.0 or global_position.x > vp_size.x + 100.0:
+	# Si sale de la pantalla, destruir
+	var vp := get_viewport_rect().size
+	if global_position.x < -100.0 or global_position.x > vp.x + 100.0:
 		queue_free()
-
-
-# El spawner llama a esto para decidir desde qué lado viene
-func set_move_from_left(from_left: bool) -> void:
-	# Si aparece desde la izquierda, se mueve hacia la derecha
-	direction = Vector2.RIGHT if from_left else Vector2.LEFT
-
-	# Voltear sprite según dirección (ajusta si se ve al revés)
-	if sprite:
-		sprite.flip_h = not from_left
