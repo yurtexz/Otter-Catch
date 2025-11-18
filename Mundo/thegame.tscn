@@ -1,18 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://bifi3v8sd7s1e"]
+[gd_scene load_steps=14 format=3 uid="uid://dipwouo0r8nmu"]
 
 [ext_resource type="Texture2D" uid="uid://coe7g3xy36n1v" path="res://Assets/FONDOS/fajrbackground.png" id="1_bkatu"]
 [ext_resource type="Texture2D" uid="uid://biv1wytkw6cld" path="res://Assets/FONDOS/Escena terminada.png" id="2_fig0l"]
 [ext_resource type="Texture2D" uid="uid://drnjn41hf6ute" path="res://Assets/FONDOS/muelle.png" id="3_ce1v2"]
-[ext_resource type="Script" path="res://Mundo/otter.gd" id="4_n4c2b"]
-[ext_resource type="Script" path="res://Mundo/rod.gd" id="5_ce1v2"]
+[ext_resource type="Script" uid="uid://naf3ap7bxhj1" path="res://Mundo/otter.gd" id="4_n4c2b"]
+[ext_resource type="Script" uid="uid://btte01uej7adl" path="res://Mundo/rod.gd" id="5_ce1v2"]
 [ext_resource type="Texture2D" uid="uid://bshsstqisp30x" path="res://Assets/nutria/Ottis.png" id="5_lj3nr"]
 [ext_resource type="Texture2D" uid="uid://scncyqqnfmm1" path="res://Assets/nutria/carnada.png" id="6_n4c2b"]
 [ext_resource type="Texture2D" uid="uid://c166p8nvtn5r3" path="res://Assets/FONDOS/muellebajo.png" id="8_n4c2b"]
-[ext_resource type="Script" uid="uid://dmv1w1q13j4n4" path="res://Mundo/spawner.gd" id="9_lj3nr"]
+[ext_resource type="Script" path="res://Mundo/spawner.gd" id="9_lj3nr"]
 [ext_resource type="PackedScene" uid="uid://bpl7ro26tg2cy" path="res://Mundo/Fish.tscn" id="10_fig0l"]
+[ext_resource type="PackedScene" uid="uid://d1m31ogmgj41v" path="res://patoscene/SpawnerPatos.tscn" id="11_h2myu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vaq5q"]
 radius = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2myu"]
+radius = 65.4291
+height = 130.858
 
 [node name="Main" type="Node2D"]
 scale = Vector2(0.366809, 0.510678)
@@ -48,6 +53,18 @@ expand_mode = 5
 stretch_mode = 6
 
 [node name="Mundo" type="Node2D" parent="."]
+
+[node name="Spawner" type="Node2D" parent="Mundo"]
+z_index = 80
+position = Vector2(0, 828.311)
+scale = Vector2(1, 1)
+script = ExtResource("9_lj3nr")
+fish_scene = ExtResource("10_fig0l")
+lanes_path = NodePath("../Lanes")
+
+[node name="Timer" type="Timer" parent="Mundo/Spawner"]
+wait_time = 1.5
+autostart = true
 
 [node name="Muellebajo" type="Sprite2D" parent="Mundo"]
 z_index = 80
@@ -95,6 +112,8 @@ antialiased = true
 show_behind_parent = true
 z_index = 11
 position = Vector2(70.8816, 591.371)
+collision_layer = 4
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Otter/Rod/Bait"]
 position = Vector2(2.72628, 27.4145)
@@ -114,28 +133,24 @@ scale = Vector2(0.242808, 0.149605)
 texture = ExtResource("5_lj3nr")
 flip_h = true
 
+[node name="Area2D" type="Area2D" parent="Mundo/Otter"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Otter/Area2D"]
+position = Vector2(196.287, 642.283)
+shape = SubResource("CapsuleShape2D_h2myu")
+
 [node name="Lanes" type="Node2D" parent="Mundo"]
 position = Vector2(466.183, 769.565)
 
 [node name="Lane0" type="Marker2D" parent="Mundo/Lanes"]
-position = Vector2(-1.52588e-05, 64.62)
+position = Vector2(-0.000389576, -54.8289)
 
 [node name="Lane1" type="Marker2D" parent="Mundo/Lanes"]
-position = Vector2(2.72621, 186.027)
+position = Vector2(-0.000378609, 186.027)
 
 [node name="Lane2" type="Marker2D" parent="Mundo/Lanes"]
-position = Vector2(2.72624, 309.393)
-
-[node name="Spawner" type="Node2D" parent="Mundo"]
-z_index = 80
-position = Vector2(0, 828.311)
-script = ExtResource("9_lj3nr")
-fish_scene = ExtResource("10_fig0l")
-lanes_path = NodePath("../Lanes")
-
-[node name="Timer" type="Timer" parent="Mundo/Spawner"]
-wait_time = 1.5
-autostart = true
+position = Vector2(-0.00039053, 436.675)
 
 [node name="StandY" type="Marker2D" parent="Mundo"]
 position = Vector2(509.802, 701.029)
@@ -151,3 +166,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="SpawnerPatos" parent="." instance=ExtResource("11_h2myu")]
+
+[connection signal="area_entered" from="Mundo/Otter/Area2D" to="Mundo/Otter" method="_on_area_2d_area_entered"]

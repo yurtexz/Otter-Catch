@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7rsfeh5oyvdy"]
+
+[ext_resource type="Script" uid="uid://ldmwbnhtd8sx" path="res://GameOver/canvas_layer.gd" id="1_71px7"]
+[ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="2_qcxx8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5er6c"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Gameover" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_71px7")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 56.0
+offset_top = 64.0
+offset_right = 312.0
+offset_bottom = 112.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qcxx8")
+theme_override_font_sizes/font_size = 40
+text = "Fin del juego"
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+process_mode = 3
+offset_left = 48.0
+offset_top = 160.0
+offset_right = 314.0
+offset_bottom = 336.0
+
+[node name="Reintentar" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 2
+offset_right = 266.0
+offset_bottom = 86.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qcxx8")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_5er6c")
+text = "reintentar"
+
+[node name="MenuPrin" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 2
+offset_top = 90.0
+offset_right = 266.0
+offset_bottom = 176.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qcxx8")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_5er6c")
+text = "Menu"
+
+[connection signal="pressed" from="CanvasLayer/Panel/Reintentar" to="CanvasLayer" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/MenuPrin" to="CanvasLayer" method="_on_menu_pressed"]

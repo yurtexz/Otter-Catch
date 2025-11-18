@@ -3,12 +3,15 @@ extends Node2D
 
 signal movement_finished(level: int)
 
-@export var level_lengths := PackedFloat32Array([0.0, 120.0, 220.0]) # largos por nivel (px)
+@export var level_lengths := PackedFloat32Array([0.0, 120.0, 190.0,270.0]) # largos por nivel (px)
 @export var move_time := 0.25
+
 
 @onready var origin: Marker2D = $Origin
 @onready var line: Line2D = $Line
 @onready var bait: Node2D = $Bait
+var fish_hooked: Area2D = null
+
 
 var level := 0            # 0 = retraída, 1 = media, 2 = profunda
 var rope_len := 0.0

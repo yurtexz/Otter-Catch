@@ -20,7 +20,7 @@ var SWIPE_MIN_Y := 40.0
 # Estados (fallback si no usamos Rod.is_retracted())
 enum RodState { RETRACTED, MOVING, AT_DEPTH }
 var rod_state := RodState.RETRACTED
-
+var vida = 1
 # Interno
 var hole_x := PackedFloat32Array()
 var current_index := 0
@@ -193,3 +193,16 @@ func _on_rod_at_depth() -> void:
 
 func _on_rod_retracted() -> void:
 	rod_state = RodState.RETRACTED
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if (area.name == "Pelotita"):
+		vida -= 1
+		if(vida <= 0):
+			game_over()
+func game_over():
+	# Pausar todo el juego
+	var game_over_screen = load("res://GameOver/Gameover.tscn").instantiate()
+	get_tree().current_scene.add_child(game_over_screen)
+	get_tree().paused = true
+	

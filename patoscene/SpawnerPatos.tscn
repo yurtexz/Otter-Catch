@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1m31ogmgj41v"]
+
+[ext_resource type="Script" uid="uid://dj35td363m6lc" path="res://patoscene/SpawnerPatos.gd" id="1_737tv"]
+[ext_resource type="PackedScene" uid="uid://4pgm3gpk6cwm" path="res://patoscene/PatoEstatico.tscn" id="2_t7eb1"]
+[ext_resource type="PackedScene" uid="uid://bl0qtv0pnmbil" path="res://patoscene/PatoPerseguidor.tscn" id="3_kfrm0"]
+[ext_resource type="PackedScene" uid="uid://qh1xv3v0uaa0" path="res://patoscene/Pelotita.tscn" id="4_v7w4c"]
+
+[node name="SpawnerPatos" type="Node"]
+script = ExtResource("1_737tv")
+pato_estatico_scene = ExtResource("2_t7eb1")
+pato_perseguidor_scene = ExtResource("3_kfrm0")
+pelotita_scene = ExtResource("4_v7w4c")
