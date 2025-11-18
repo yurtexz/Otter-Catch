@@ -2,7 +2,7 @@ extends Node2D
 # Spawner de peces en lanes aleatorios
 
 @export var fish_scene: PackedScene
-@export var spawn_interval := 1.5
+@export var spawn_interval := 3.0
 #@export var speed_range := Vector2(60.0, 110.0)
 @export_node_path("Node2D") var lanes_path: NodePath   # arrastra aquí el nodo Lanes
 

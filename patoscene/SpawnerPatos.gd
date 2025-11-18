@@ -6,7 +6,7 @@ extends Node
 @export var pelotita_scene: PackedScene
 
 var posiciones_posibles = [
-	100,250,350
+	180,340,480
 ]
 
 var pato_estatico: Node2D

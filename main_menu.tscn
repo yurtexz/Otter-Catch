@@ -48,29 +48,32 @@ script = ExtResource("1_main")
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = -295.0
-offset_top = -323.0
-offset_right = 406.0
-offset_bottom = 334.0
+offset_left = -276.0
+offset_top = -475.0
+offset_right = 425.0
+offset_bottom = 293.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.03669, 1.24919)
 theme_override_styles/panel = SubResource("StyleBoxTexture_nlkkf")
 
 [node name="Panel2" type="Panel" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 188.0
-offset_top = -18.0
-offset_right = 604.0
-offset_bottom = 266.0
+offset_left = 100.319
+offset_top = 12.8083
+offset_right = 516.319
+offset_bottom = 296.808
+scale = Vector2(1.21501, 1.21501)
 theme_override_styles/panel = SubResource("StyleBoxTexture_qe12f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-offset_left = -80.0
-offset_top = -110.0
-offset_right = 232.0
-offset_bottom = 74.0
+offset_left = -108.0
+offset_top = -83.0
+offset_right = 204.0
+offset_bottom = 168.0
+scale = Vector2(1.19913, 1.19913)
 theme_override_constants/separation = 17
 
 [node name="Button" type="Button" parent="VBoxContainer"]

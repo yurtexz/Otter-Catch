@@ -6,7 +6,7 @@ var direction: Vector2 = Vector2.ZERO
 var hooked := false
 var target_bait: Area2D = null
 @onready var sprite: Sprite2D = $Sprite2D
-@export var hook_offset: Vector2 = Vector2(120, 30)
+
 
 
 func _ready() -> void:
@@ -28,8 +28,8 @@ func _process(delta: float) -> void:
 	# Por si el spawner no llamó a set_move_from_left, por defecto va a la derecha
 	if hooked and target_bait:
 		rotation = deg_to_rad(-90)  # o 90 según cómo esté tu sprite
-		global_position = target_bait.global_position + hook_offset
-		if global_position.y <= 340.0:
+		global_position = target_bait.global_position 
+		if global_position.y <= 500.0:
 			var rod = target_bait.get_parent()
 			if rod and "fish_hooked" in rod:
 				rod.fish_hooked = null

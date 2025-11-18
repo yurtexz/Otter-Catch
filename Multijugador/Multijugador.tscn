@@ -120,10 +120,10 @@ alignment = 1
 
 [node name="Volver" type="Button" parent="."]
 layout_mode = 0
-offset_left = 136.0
-offset_top = 48.0
-offset_right = 226.0
-offset_bottom = 88.0
+offset_left = 224.0
+offset_top = 184.0
+offset_right = 314.0
+offset_bottom = 224.0
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_ni7w4")
 text = "Volver"

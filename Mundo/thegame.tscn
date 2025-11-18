@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bshsstqisp30x" path="res://Assets/nutria/Ottis.png" id="5_lj3nr"]
 [ext_resource type="Texture2D" uid="uid://scncyqqnfmm1" path="res://Assets/nutria/carnada.png" id="6_n4c2b"]
 [ext_resource type="Texture2D" uid="uid://c166p8nvtn5r3" path="res://Assets/FONDOS/muellebajo.png" id="8_n4c2b"]
-[ext_resource type="Script" path="res://Mundo/spawner.gd" id="9_lj3nr"]
+[ext_resource type="Script" uid="uid://dmv1w1q13j4n4" path="res://Mundo/spawner.gd" id="9_lj3nr"]
 [ext_resource type="PackedScene" uid="uid://bpl7ro26tg2cy" path="res://Mundo/Fish.tscn" id="10_fig0l"]
 [ext_resource type="PackedScene" uid="uid://d1m31ogmgj41v" path="res://patoscene/SpawnerPatos.tscn" id="11_h2myu"]
 
@@ -16,8 +16,8 @@
 radius = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2myu"]
-radius = 65.4291
-height = 130.858
+radius = 87.2389
+height = 187.985
 
 [node name="Main" type="Node2D"]
 scale = Vector2(0.366809, 0.510678)
@@ -29,7 +29,8 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2.0
+offset_top = -8.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_bkatu")
@@ -42,10 +43,10 @@ anchor_left = -0.481
 anchor_top = -0.494
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 173.16
-offset_top = 724.16
-offset_right = 180.0
-offset_bottom = 323.0
+offset_left = 259.74
+offset_top = 1060.24
+offset_right = 272.0
+offset_bottom = 482.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_fig0l")
@@ -56,8 +57,7 @@ stretch_mode = 6
 
 [node name="Spawner" type="Node2D" parent="Mundo"]
 z_index = 80
-position = Vector2(0, 828.311)
-scale = Vector2(1, 1)
+position = Vector2(0, 1190.57)
 script = ExtResource("9_lj3nr")
 fish_scene = ExtResource("10_fig0l")
 lanes_path = NodePath("../Lanes")
@@ -68,29 +68,29 @@ autostart = true
 
 [node name="Muellebajo" type="Sprite2D" parent="Mundo"]
 z_index = 80
-position = Vector2(628.392, 793.063)
-scale = Vector2(2.0801, 1.11043)
+position = Vector2(916.008, 1112.25)
+scale = Vector2(3.19021, 1.84239)
 texture = ExtResource("8_n4c2b")
 
 [node name="Muelle" type="Sprite2D" parent="Mundo"]
-position = Vector2(523.433, 773.482)
-scale = Vector2(0.815958, 0.36982)
+position = Vector2(763.34, 1065.25)
+scale = Vector2(1.27747, 0.53524)
 texture = ExtResource("3_ce1v2")
 
 [node name="Holes" type="Node2D" parent="Mundo"]
-position = Vector2(242.633, 571.789)
+position = Vector2(283.526, 877.265)
 
 [node name="Hole0" type="Marker2D" parent="Mundo/Holes"]
-position = Vector2(2.72623, 158.613)
+position = Vector2(-1.90735e-06, 131.198)
 
 [node name="Hole1" type="Marker2D" parent="Mundo/Holes"]
-position = Vector2(269.895, 158.613)
+position = Vector2(431.83, 130.969)
 
 [node name="Hole2" type="Marker2D" parent="Mundo/Holes"]
-position = Vector2(539.79, 160.571)
+position = Vector2(846.215, 130.969)
 
 [node name="Camera2D" type="Camera2D" parent="Mundo"]
-position = Vector2(490.719, 622.702)
+position = Vector2(741.53, 939.927)
 scale = Vector2(-1381.4, -1.92015)
 
 [node name="Otter" type="CharacterBody2D" parent="Mundo"]
@@ -111,25 +111,25 @@ antialiased = true
 [node name="Bait" type="Area2D" parent="Mundo/Otter/Rod"]
 show_behind_parent = true
 z_index = 11
-position = Vector2(70.8816, 591.371)
+position = Vector2(111.775, 814.603)
 collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Otter/Rod/Bait"]
-position = Vector2(2.72628, 27.4145)
+position = Vector2(-7.15256e-06, 15.6655)
 shape = SubResource("CircleShape2D_vaq5q")
 
 [node name="BaitSprite" type="Sprite2D" parent="Mundo/Otter/Rod/Bait"]
-position = Vector2(4.9954e-05, 21.54)
+position = Vector2(-1.24441e-05, 15.6655)
 scale = Vector2(0.79818, 0.683578)
 texture = ExtResource("6_n4c2b")
 
 [node name="Origin" type="Marker2D" parent="Mundo/Otter/Rod"]
-position = Vector2(70.8816, 589.413)
+position = Vector2(111.775, 814.603)
 
 [node name="Sprite2D" type="Sprite2D" parent="Mundo/Otter"]
-position = Vector2(166.299, 638.367)
-scale = Vector2(0.242808, 0.149605)
+position = Vector2(261.717, 889.014)
+scale = Vector2(0.383374, 0.236214)
 texture = ExtResource("5_lj3nr")
 flip_h = true
 
@@ -137,23 +137,23 @@ flip_h = true
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Otter/Area2D"]
-position = Vector2(196.287, 642.283)
+position = Vector2(305.336, 877.265)
 shape = SubResource("CapsuleShape2D_h2myu")
 
 [node name="Lanes" type="Node2D" parent="Mundo"]
-position = Vector2(466.183, 769.565)
+position = Vector2(523.433, 516.96)
 
 [node name="Lane0" type="Marker2D" parent="Mundo/Lanes"]
-position = Vector2(-0.000389576, -54.8289)
+position = Vector2(109.049, -250.647)
 
 [node name="Lane1" type="Marker2D" parent="Mundo/Lanes"]
-position = Vector2(-0.000378609, 186.027)
+position = Vector2(109.049, 109.658)
 
 [node name="Lane2" type="Marker2D" parent="Mundo/Lanes"]
-position = Vector2(-0.00039053, 436.675)
+position = Vector2(109.049, 595.287)
 
 [node name="StandY" type="Marker2D" parent="Mundo"]
-position = Vector2(509.802, 701.029)
+position = Vector2(523.433, 986.923)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

@@ -3,7 +3,7 @@ extends Node2D
 
 signal movement_finished(level: int)
 
-@export var level_lengths := PackedFloat32Array([0.0, 120.0, 190.0,270.0]) # largos por nivel (px)
+@export var level_lengths := PackedFloat32Array([0.0, 250.0, 340.0,470.0]) # largos por nivel (px)
 @export var move_time := 0.25
 
 
