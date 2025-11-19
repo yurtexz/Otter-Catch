@@ -20,7 +20,7 @@ var SWIPE_MIN_Y := 40.0
 # Estados (fallback si no usamos Rod.is_retracted())
 enum RodState { RETRACTED, MOVING, AT_DEPTH }
 var rod_state := RodState.RETRACTED
-var vida = 1
+var vida = 3
 # Interno
 var hole_x := PackedFloat32Array()
 var current_index := 0

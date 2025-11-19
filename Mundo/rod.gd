@@ -16,6 +16,7 @@ var fish_hooked: Area2D = null
 var level := 0            # 0 = retraída, 1 = media, 2 = profunda
 var rope_len := 0.0
 var tween: Tween
+var fish_caught_count: int = 0 # pa contar los peces capturados
 
 func _ready() -> void:
 	# Asegurar que la cuerda se vea
@@ -65,3 +66,16 @@ func is_moving() -> bool:
 
 func is_retracted() -> bool:
 	return level == 0 and not is_moving()
+
+func notify_fish_caught() -> void:
+	fish_caught_count += 1
+	
+	var hud = get_tree().current_scene.get_node("UILayer/HUD")
+	if hud and hud.has_method("set_fish_count"):
+		hud.set_fish_count(fish_caught_count)
+	
+	
+	
+	
+	
+	

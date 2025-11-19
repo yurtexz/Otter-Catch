@@ -33,6 +33,8 @@ func _process(delta: float) -> void:
 			var rod = target_bait.get_parent()
 			if rod and "fish_hooked" in rod:
 				rod.fish_hooked = null
+				if rod.has_method("notify_fish_caught"):
+					rod.notify_fish_caught()
 				queue_free()
 	else:
 		position += direction * speed * delta

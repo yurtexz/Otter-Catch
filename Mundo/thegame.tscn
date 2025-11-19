@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dipwouo0r8nmu"]
+[gd_scene load_steps=20 format=3 uid="uid://c0md2npfael"]
 
 [ext_resource type="Texture2D" uid="uid://coe7g3xy36n1v" path="res://Assets/FONDOS/fajrbackground.png" id="1_bkatu"]
 [ext_resource type="Texture2D" uid="uid://biv1wytkw6cld" path="res://Assets/FONDOS/Escena terminada.png" id="2_fig0l"]
@@ -11,6 +11,12 @@
 [ext_resource type="Script" uid="uid://dmv1w1q13j4n4" path="res://Mundo/spawner.gd" id="9_lj3nr"]
 [ext_resource type="PackedScene" uid="uid://bpl7ro26tg2cy" path="res://Mundo/Fish.tscn" id="10_fig0l"]
 [ext_resource type="PackedScene" uid="uid://d1m31ogmgj41v" path="res://patoscene/SpawnerPatos.tscn" id="11_h2myu"]
+[ext_resource type="Script" uid="uid://dh4hjx7lble4l" path="res://Mundo/hud.gd" id="11_v6s4h"]
+[ext_resource type="Texture2D" uid="uid://8vmg1q2112vd" path="res://Assets/Peces/pezPlata.png" id="12_h40uq"]
+[ext_resource type="Script" uid="uid://kydsk8okm7rf" path="res://Mundo/fish_label.gd" id="12_j4u17"]
+[ext_resource type="Texture2D" uid="uid://buuph0q53sjhn" path="res://Assets/FONDOS/palmtree.png" id="12_l4ymh"]
+[ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="13_h40uq"]
+[ext_resource type="Texture2D" uid="uid://dmvkcrgpdhwmh" path="res://Assets/FONDOS/Red Heart 16X16.png" id="17_hw68p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vaq5q"]
 radius = 12.0
@@ -166,7 +172,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
+script = ExtResource("11_v6s4h")
+
+[node name="PezPlata" type="Sprite2D" parent="UILayer/HUD"]
+position = Vector2(-110, -920)
+scale = Vector2(0.0194669, 0.0268718)
+texture = ExtResource("12_h40uq")
+
+[node name="FishLabel" type="Label" parent="UILayer/HUD"]
+layout_mode = 0
+offset_left = -79.0
+offset_top = -939.0
+offset_right = -9.0
+offset_bottom = -899.0
+theme_override_fonts/font = ExtResource("13_h40uq")
+theme_override_font_sizes/font_size = 40
+text = "0"
+script = ExtResource("12_j4u17")
 
 [node name="SpawnerPatos" parent="." instance=ExtResource("11_h2myu")]
+
+[node name="Palmtree" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(348.956, 677.531)
+scale = Vector2(0.881829, 0.549018)
+texture = ExtResource("12_l4ymh")
+
+[node name="RedHeart16x16" type="Sprite2D" parent="."]
+position = Vector2(125.406, 82.2436)
+scale = Vector2(5.78762, 3.67682)
+texture = ExtResource("17_hw68p")
+
+[node name="RedHeart16x17" type="Sprite2D" parent="."]
+position = Vector2(239.907, 82.2436)
+scale = Vector2(5.78762, 3.67682)
+texture = ExtResource("17_hw68p")
+
+[node name="RedHeart16x18" type="Sprite2D" parent="."]
+position = Vector2(354.408, 82.2436)
+scale = Vector2(5.78762, 3.67682)
+texture = ExtResource("17_hw68p")
 
 [connection signal="area_entered" from="Mundo/Otter/Area2D" to="Mundo/Otter" method="_on_area_2d_area_entered"]
