@@ -329,6 +329,7 @@ func _abrir_lobby():
 		fila.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		fila.add_theme_constant_override("separation", 40)
 
+
 		var texto = "👤 " + jugador_nombre + "   |   🎮 " + game_name
 		var lbl := _crear_label(texto, 24)
 		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

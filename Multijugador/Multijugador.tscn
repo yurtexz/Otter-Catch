@@ -124,6 +124,7 @@ offset_left = 224.0
 offset_top = 184.0
 offset_right = 314.0
 offset_bottom = 224.0
+scale = Vector2(1.18461, 1.45232)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_ni7w4")
 text = "Volver"

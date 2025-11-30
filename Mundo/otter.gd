@@ -10,6 +10,9 @@ extends CharacterBody2D
 @export var hole_y := 160.0
 @export_node_path("Node2D") var holes_path : NodePath
 @export_node_path("Marker2D") var stand_y_path : NodePath
+@onready var cor1 := $"../../RedHeart16x16"
+@onready var cor2 := $"../../RedHeart16x17"
+@onready var cor3 := $"../../RedHeart16x18"
 
 # Umbrales del gesto
 const SWIPE_TIME_MAX := 0.60
@@ -198,6 +201,9 @@ func _on_rod_retracted() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if (area.name == "Pelotita"):
 		vida -= 1
+		cor1.visible = vida >= 1
+		cor2.visible = vida >= 2
+		cor3.visible = vida >= 3
 		if(vida <= 0):
 			game_over()
 func game_over():
