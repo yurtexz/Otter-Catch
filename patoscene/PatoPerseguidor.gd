@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 750
+@export var speed: float = 1300
 @onready var player: CharacterBody2D = $"../Nutria"  
 @export var pelotita_scene: PackedScene               
 
@@ -51,7 +51,7 @@ func move_towards_lane(delta):
 
 func start_attack_wait():
 	is_waiting = true
-	var random_time = randf_range(5.0, 9.0)
+	var random_time = randf_range(1.0, 2.5)
 	drop_timer.wait_time = random_time
 	drop_timer.start()
 

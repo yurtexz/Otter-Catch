@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf7nsj1q6xhad"]
+
+[ext_resource type="Script" uid="uid://bekbm326j56ia" path="res://beer.gd" id="1_jtq0t"]
+[ext_resource type="Texture2D" uid="uid://dxu0y38vh5doy" path="res://Assets/Enemigos/Cerveza cristal.png" id="2_lkdib"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jtq0t"]
+radius = 28.0
+height = 140.0
+
+[node name="Beer" type="Area2D"]
+position = Vector2(1, 3)
+script = ExtResource("1_jtq0t")
+
+[node name="Cristal" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(0.316, 0.302)
+texture = ExtResource("2_lkdib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jtq0t")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

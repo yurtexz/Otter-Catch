@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
-@export var speed: float = 200
+@export var base_speed: float = 150
 @export var pelotita_scene: PackedScene
+@export var speed_per_fish: float = 15.0
+@onready var hud := get_tree().current_scene.get_node("UILayer/HUD")
 
-var lane_positions = [100, 200, 300]
+var speed: float = 0.0
+
+var lane_positions = [200, 340, 480]
 var target_x: float
 var is_moving: bool = false
 var is_waiting: bool = false
@@ -19,13 +23,21 @@ func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 	drop_timer.timeout.connect(_on_drop_timer_timeout)
 	
+	speed = base_speed
+	
 	target_x = choose(lane_positions)
 	is_moving = true
 	position.y = 200
 
 func _process(delta):
+	
+	if hud:
+		var fish_count : int = hud.fish_count
+		speed = base_speed + float(fish_count) * speed_per_fish
+	
 	if is_moving:
 		move_towards_lane(delta)
+		print(speed)
 
 func move_towards_lane(delta):
 	var direction = sign(target_x - position.x)
@@ -44,9 +56,9 @@ func move_towards_lane(delta):
 func start_wait():
 	is_waiting = true
 	
-	var random_time = randf_range(5.0, 9.0)
+	var random_time = randf_range(0.5, 1.0)
 	drop_timer.wait_time = random_time
-	timer.wait_time = 10.0
+	timer.wait_time = 1.0
 	
 	drop_timer.start()
 	timer.start()

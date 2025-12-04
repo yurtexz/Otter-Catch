@@ -212,3 +212,10 @@ func game_over():
 	get_tree().current_scene.add_child(game_over_screen)
 	get_tree().paused = true
 	
+	
+func take_hit(source: String = "") -> void:
+	vida -= 1
+	print("La nutria recibió daño de: ", source, " | vida =", vida)
+
+	if vida <= 0:
+		game_over()

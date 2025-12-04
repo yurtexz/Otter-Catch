@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmhitxkcbvei0"]
+
+[ext_resource type="AudioStream" uid="uid://cqpdl8mubvhr8" path="res://Assets/music/CRAZY NIGA 2.mp3" id="1_esi4b"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_esi4b")
+autoplay = true

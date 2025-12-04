@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj46jud57jl56"
+path="res://.godot/imported/SPONGEBOB CHASE SONG (lucid sound.Trap Remix).mp3-6ccb6c49764f6eeff38402b5fb23f003.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/SPONGEBOB CHASE SONG (lucid sound.Trap Remix).mp3"
+dest_files=["res://.godot/imported/SPONGEBOB CHASE SONG (lucid sound.Trap Remix).mp3-6ccb6c49764f6eeff38402b5fb23f003.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

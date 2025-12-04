@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cip4frvmcdjg7"
+path="res://.godot/imported/Esclava (Remix).mp3-4ae8c5e9b2693ab95fae79c9b48ad827.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/Esclava (Remix).mp3"
+dest_files=["res://.godot/imported/Esclava (Remix).mp3-4ae8c5e9b2693ab95fae79c9b48ad827.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

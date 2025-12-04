@@ -1,17 +1,17 @@
 extends Node2D
-# Spawner de peces en lanes aleatorios
+# Spawner de peces y cerveza en lanes aleatorios
 
 @export var fish_scene: PackedScene
-@export var spawn_interval := 3.0
-#@export var speed_range := Vector2(60.0, 110.0)
+@export var beer_scene: PackedScene              # NUEVO: escena de cerveza
+@export var spawn_interval := 1.3
+@export var beer_chance: float = 0.2            # 50% prob. de que sea cerveza
 @export_node_path("Node2D") var lanes_path: NodePath   # arrastra aquí el nodo Lanes
 
 var lanes_y := PackedFloat32Array()
-var cont = 0
-var speed_range = 60
+var cont := 0
+var speed_range := 100
 
 @onready var timer: Timer = $Timer
-
 
 func _ready() -> void:
 	randomize()
@@ -20,7 +20,6 @@ func _ready() -> void:
 	timer.wait_time = spawn_interval
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
-
 
 func _cache_lanes() -> void:
 	lanes_y.clear()
@@ -41,9 +40,8 @@ func _cache_lanes() -> void:
 	else:
 		print("Lanes Y:", lanes_y)
 
-
 func _on_timer_timeout() -> void:
-	if fish_scene == null or lanes_y.is_empty():
+	if lanes_y.is_empty():
 		return
 
 	# 1) Elegir lane aleatorio
@@ -53,36 +51,42 @@ func _on_timer_timeout() -> void:
 	# 2) Tamaño de pantalla
 	var vp_size: Vector2 = get_viewport().get_visible_rect().size
 
-	# 3) De qué lado sale el pez
+	# 3) De qué lado sale (si quieres siempre por la izquierda, deja from_left = true)
 	var from_left := randf() < 0.5
-	# Si quieres SIEMPRE a la derecha, descomenta la siguiente línea:
 	from_left = true
 
 	var start_x := -40.0 if from_left else vp_size.x + 40.0
 
-	# 4) Crear pez
-	var fish := fish_scene.instantiate() as Area2D
-	fish.global_position = Vector2(start_x, lane_y)
-	cont = cont + 1
-	print(cont)
+	# 4) Elegir si spawnea pez o cerveza
+	var use_beer := beer_scene != null and randf() < beer_chance
+	var scene_to_spawn: PackedScene = beer_scene if use_beer else fish_scene
 
-	# Velocidad aleatoria
-	if cont % 5 == 0:
-		speed_range = speed_range + 20
-		fish.speed = speed_range
-		print (fish.speed)
+	if scene_to_spawn == null:
+		return
+
+	var obj := scene_to_spawn.instantiate() as Area2D
+	obj.global_position = Vector2(start_x, lane_y)
+
+	# Velocidad (pez con escalado, cerveza a velocidad base)
+	if not use_beer:
+		cont += 1
+		if cont % 5 == 0:
+			speed_range += 20
+		if "speed" in obj:
+			obj.speed = speed_range
 	else:
-		fish.speed = speed_range
-		print(fish.speed)
-	
-	#if "speed" in fish:
-		#fish.speed = randf_range(speed_range.x, speed_range.y)
+		# Cerveza puede ir un poco más rápida o igual
+		if "speed" in obj:
+			obj.speed = speed_range + 30
 
-	# Informar desde qué lado se mueve
-	if fish.has_method("set_move_from_left"):
-		fish.set_move_from_left(from_left)
+	# Dirección según lado
+	if obj.has_method("set_move_from_left"):
+		obj.set_move_from_left(from_left)
 
-	add_child(fish)
+	add_child(obj)
 
-	# Reiniciar timer
 	timer.start()
+
+
+func _on_beer_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
