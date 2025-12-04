@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0hnya8i6vhk0"]
+[gd_scene load_steps=3 format=3 uid="uid://drue3x34nie0b"]
 
-[ext_resource type="Script" uid="uid://cfwn35sivibjx" path="res://music_controller.gd" id="1_elo0m"]
+[ext_resource type="Script" uid="uid://cfwn35sivibjx" path="res://Assets/music/music_controller.gd" id="1_elo0m"]
 [ext_resource type="AudioStream" uid="uid://dj46jud57jl56" path="res://Assets/music/SPONGEBOB CHASE SONG (lucid sound.Trap Remix).mp3" id="2_elo0m"]
 
 [node name="MusicController" type="Node2D"]
@@ -8,5 +8,5 @@ script = ExtResource("1_elo0m")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_elo0m")
-volume_db = -1.409
+volume_db = -30.454
 autoplay = true

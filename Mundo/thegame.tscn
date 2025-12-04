@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://c0md2npfael"]
+[gd_scene load_steps=23 format=3 uid="uid://dipwouo0r8nmu"]
 
 [ext_resource type="Texture2D" uid="uid://coe7g3xy36n1v" path="res://Assets/FONDOS/fajrbackground.png" id="1_bkatu"]
 [ext_resource type="Texture2D" uid="uid://biv1wytkw6cld" path="res://Assets/FONDOS/Escena terminada.png" id="2_fig0l"]
-[ext_resource type="Script" uid="uid://xwmdf0kjo2kv" path="res://Mundo/mundo.gd" id="3_24oc2"]
+[ext_resource type="Script" path="res://Mundo/mundo.gd" id="3_24oc2"]
 [ext_resource type="Texture2D" uid="uid://drnjn41hf6ute" path="res://Assets/FONDOS/muelle.png" id="3_ce1v2"]
 [ext_resource type="Script" uid="uid://naf3ap7bxhj1" path="res://Mundo/otter.gd" id="4_n4c2b"]
 [ext_resource type="Script" uid="uid://btte01uej7adl" path="res://Mundo/rod.gd" id="5_ce1v2"]
@@ -15,11 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://d1m31ogmgj41v" path="res://patoscene/SpawnerPatos.tscn" id="11_h2myu"]
 [ext_resource type="Script" uid="uid://dh4hjx7lble4l" path="res://Mundo/hud.gd" id="11_v6s4h"]
 [ext_resource type="Texture2D" uid="uid://8vmg1q2112vd" path="res://Assets/Peces/pezPlata.png" id="12_h40uq"]
-[ext_resource type="Script" uid="uid://kydsk8okm7rf" path="res://Mundo/fish_label.gd" id="12_j4u17"]
+[ext_resource type="Script" path="res://Mundo/fish_label.gd" id="12_j4u17"]
 [ext_resource type="Texture2D" uid="uid://buuph0q53sjhn" path="res://Assets/FONDOS/palmtree.png" id="12_l4ymh"]
 [ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="13_h40uq"]
 [ext_resource type="Texture2D" uid="uid://dmvkcrgpdhwmh" path="res://Assets/FONDOS/Red Heart 16X16.png" id="17_hw68p"]
-[ext_resource type="Script" path="res://Mundo/canvas_layer.gd" id="18_gaupb"]
+[ext_resource type="Script" uid="uid://bn6u32tl1jjir" path="res://Mundo/canvas_layer.gd" id="18_gaupb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vaq5q"]
 radius = 12.0

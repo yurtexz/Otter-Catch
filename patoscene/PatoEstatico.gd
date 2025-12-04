@@ -37,7 +37,7 @@ func _process(delta):
 	
 	if is_moving:
 		move_towards_lane(delta)
-		print(speed)
+		
 
 func move_towards_lane(delta):
 	var direction = sign(target_x - position.x)

@@ -33,6 +33,7 @@ offset_right = 408.0
 offset_bottom = 318.0
 
 [node name="Continuar" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 274.0
@@ -45,6 +46,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_m682x")
 text = "Continuar"
 
 [node name="MenuPrin" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 104.0
 offset_right = 274.0

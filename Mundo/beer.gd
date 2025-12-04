@@ -32,12 +32,7 @@ func _on_area_entered(area: Area2D) -> void:
 			if otter:
 				# Si la nutria tiene la variable vida, la reducimos
 				if "vida" in otter:
-					otter.vida -= 1
-					print("La cerveza golpeó al jugador. Vida actual:", otter.vida)
-
-					# Si la vida llega a 0 y existe game_over(), lo llamamos
-					if otter.vida <= 0 and otter.has_method("game_over"):
-						otter.game_over()
+					otter.take_hit()
 
 		# Destruir la cerveza después del impacto
 		queue_free()

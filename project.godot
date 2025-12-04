@@ -15,6 +15,10 @@ run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 MusicController="*res://Mundo/music_controller.tscn"

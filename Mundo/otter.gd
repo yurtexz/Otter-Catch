@@ -200,12 +200,7 @@ func _on_rod_retracted() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if (area.name == "Pelotita"):
-		vida -= 1
-		cor1.visible = vida >= 1
-		cor2.visible = vida >= 2
-		cor3.visible = vida >= 3
-		if(vida <= 0):
-			game_over()
+		take_hit()
 func game_over():
 	# Pausar todo el juego
 	var game_over_screen = load("res://GameOver/Gameover.tscn").instantiate()
@@ -215,7 +210,9 @@ func game_over():
 	
 func take_hit(source: String = "") -> void:
 	vida -= 1
-	print("La nutria recibió daño de: ", source, " | vida =", vida)
+	cor1.visible = vida >= 1
+	cor2.visible = vida >= 2
+	cor3.visible = vida >= 3
 
 	if vida <= 0:
 		game_over()
