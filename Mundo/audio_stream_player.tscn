@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b08t21r7q81je"]
-
-[ext_resource type="AudioStream" uid="uid://dj46jud57jl56" path="res://Assets/music/SPONGEBOB CHASE SONG (lucid sound.Trap Remix).mp3" id="1_esi4b"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_esi4b")
-volume_db = -80.0
-autoplay = true

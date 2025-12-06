@@ -348,17 +348,17 @@ func _abrir_lobby():
 
 	var box: VBoxContainer = $Panel/Lobby/VBoxContainer
 	box.alignment = BoxContainer.ALIGNMENT_CENTER
-	box.size_flags_horizontal = 0
-	box.size_flags_vertical = 0
-	box.add_theme_constant_override("separation", 5)
+	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	box.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_theme_constant_override("separation", 25)
 
 	# limpiar contenido viejo
 	for c in box.get_children():
 		c.queue_free()
 
 	# título
-	var titulo := _crear_label("🏁 LOBBY DE PARTIDA", 30)
-	titulo.horizontal_alignment = 1
+	var titulo := _crear_label("🏁 LOBBY DE PARTIDA", 28)
+	titulo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(titulo)
 
 	# -------------------------------
@@ -399,12 +399,12 @@ func _abrir_lobby():
 		var game_name = jugador["game_name"]
 
 		var fila := HBoxContainer.new()
-		fila.alignment =1
-		fila.size_flags_horizontal = 1
-		fila.add_theme_constant_override("separation",40)
+		fila.alignment = BoxContainer.ALIGNMENT_CENTER
+		fila.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		fila.add_theme_constant_override("separation", 40)
 
 		var texto = "👤 " + str(jugador_nombre) + "     |     🎮 " + str(game_name)
-		var lbl := _crear_label(texto, 18)
+		var lbl := _crear_label(texto, 24)
 		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		fila.add_child(lbl)
 
@@ -479,7 +479,7 @@ func _evaluar_listos_y_arrancar():
 		# Asume que Globals existe y contiene 'multiplayer_levels'
 		Network.match_id = match_id
 		# 2. Cargar escena contenedora del multijugador
-		get_tree().change_scene_to_file("res://Multijugador/Escenas/JuegoMultiplayer.tscn")
+		get_tree().change_scene_to_file("res://Mundo/thegame.tscn")
 
 
 # === GESTIÓN DE JUGADORES ===
@@ -551,7 +551,7 @@ func _on_enviar_pressed():
 	scroll.visible = true
 	btn_enviar.visible = false
 	btn_ver.visible = false
-	posicion_menu = 0
+	posicion_menu = 1
 	label.text = "Jugadores conectados"
 	_enviar({"event": "online-players"})
 

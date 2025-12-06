@@ -22,6 +22,7 @@ buses/default_bus_layout=""
 [autoload]
 
 MusicController="*res://Mundo/music_controller.tscn"
+Network="*res://Multijugador/Scripts/Network.gd"
 
 [display]
 
