@@ -21,7 +21,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-MusicController="*res://Mundo/music_controller.tscn"
+MusicController="*res://Assets/music/music_controller.tscn"
 Network="*res://Multijugador/Scripts/Network.gd"
 ScoreManager="*res://Otter-Catch/ScoreManager.gd"
 

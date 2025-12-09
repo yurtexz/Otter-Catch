@@ -10,7 +10,7 @@ extends Node2D
 var lanes_y := PackedFloat32Array()
 var cont := 0
 var speed_range := 100
-
+var GOLDEN_CHANCE := 0.20  # 20% dorado
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
@@ -78,8 +78,13 @@ func _on_timer_timeout() -> void:
 		# Cerveza puede ir un poco más rápida o igual
 		if "speed" in obj:
 			obj.speed = speed_range + 30
-
+	if not use_beer:
+		if lane_index == 2:  # SOLO lane 3
+			if randf() < GOLDEN_CHANCE:
+				if obj.has_method("make_golden"):
+					obj.make_golden()
 	# Dirección según lado
+
 	if obj.has_method("set_move_from_left"):
 		obj.set_move_from_left(from_left)
 

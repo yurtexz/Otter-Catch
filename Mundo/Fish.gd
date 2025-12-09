@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed := 90.0
-
+var is_golden := false
 var direction: Vector2 = Vector2.ZERO
 var hooked := false
 var target_bait: Area2D = null
@@ -12,7 +12,8 @@ var target_bait: Area2D = null
 func _ready() -> void:
 		if direction == Vector2.ZERO:
 			direction = Vector2.RIGHT
-
+		if is_golden:
+			sprite.self_modulate = Color(1.0, 0.85, 0.0) # dorado
 
 func set_move_from_left(from_left: bool) -> void:
 	# Si aparece desde la izquierda, se mueve a la derecha.
@@ -54,3 +55,11 @@ func _on_area_entered(area: Area2D) -> void:
 				rod.fish_hooked = self
 				hooked = true
 				target_bait = area
+				if(is_golden):
+					rod.dorado_en = true
+					print("DORADOOOOOOOO")
+				else:
+					rod.dorado_en = false
+
+func make_golden():
+	is_golden = true

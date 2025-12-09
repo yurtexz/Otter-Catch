@@ -11,7 +11,7 @@ signal movement_finished(level: int)
 @onready var line: Line2D = $Line
 @onready var bait: Node2D = $Bait
 var fish_hooked: Area2D = null
-
+var dorado_en:= false
 
 var level := 0            # 0 = retraída, 1 = media, 2 = profunda
 var rope_len := 0.0
@@ -68,13 +68,18 @@ func is_retracted() -> bool:
 	return level == 0 and not is_moving()
 
 func notify_fish_caught() -> void:
-	fish_caught_count += 1
+	var cantidad:= 0
+	if(dorado_en):
+		cantidad = 10
+	else:
+		cantidad = 1
 	
+	fish_caught_count+=cantidad
 	var hud = get_tree().current_scene.get_node("UILayer/HUD")
 	if hud and hud.has_method("set_fish_count"):
 		hud.set_fish_count(fish_caught_count)
 	var payload := {"type":"attack"}
-	ScoreManager.score += 1
+	ScoreManager.score += cantidad
 	if(fish_caught_count%5 == 0):
 		Network.send_game_data(payload)
 	

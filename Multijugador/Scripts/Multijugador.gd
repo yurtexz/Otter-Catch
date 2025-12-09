@@ -12,7 +12,7 @@ extends Control
 
 
 # === CONFIGURACIÓN DEL JUEGO ===
-const MY_PLAYER_NAME := "pcjota1"     # cambia esto en cada instancia
+const MY_PLAYER_NAME := "pcjota"     # cambia esto en cada instancia
 const MY_GAME_ID := "C"
 const MY_GAME_KEY := "GZZYPVSYXS"
 const MY_GAME_NAME := "Otter Catch"
@@ -413,7 +413,7 @@ func _abrir_lobby():
 		fila.add_theme_constant_override("separation",40)
 
 		var texto = "👤 " + str(jugador_nombre) + "     |     🎮 " + str(game_name)
-		var lbl := _crear_label(texto, 18)
+		var lbl := _crear_label(texto, 15)
 		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		fila.add_child(lbl)
 
@@ -435,10 +435,8 @@ func _abrir_lobby():
 				print("Enviado ping-match (estoy listo)"))
 		else:
 			btn_estado.disabled = true
-
-		fila.add_child(btn_estado)
 		box.add_child(fila)
-
+		box.add_child(btn_estado)
 	print("🎯 Lobby cargado con", lista_final.size(), "jugadores.")
 
 func _eliminar_rival_de_lobby_por_nombre(rival_name: String):
