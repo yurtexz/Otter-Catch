@@ -25,7 +25,7 @@ func _ready() -> void:
 		line.default_color = Color8(40, 25, 10)
 	line.z_index = max(8, line.z_index)
 	bait.z_index = max(10, bait.z_index)
-
+	
 	rope_len = level_lengths[0]
 	_redraw()
 
@@ -73,8 +73,10 @@ func notify_fish_caught() -> void:
 	var hud = get_tree().current_scene.get_node("UILayer/HUD")
 	if hud and hud.has_method("set_fish_count"):
 		hud.set_fish_count(fish_caught_count)
-	
-	
+	var payload := {"type":"attack"}
+	ScoreManager.score += 1
+	if(fish_caught_count%5 == 0):
+		Network.send_game_data(payload)
 	
 	
 	

@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnn055htts3j5"]
+
+[ext_resource type="Script" uid="uid://bny7lpslp4esl" path="res://Multijugador/Scripts/gameovermult.gd" id="1_or4n3"]
+[ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="2_djkpf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5er6c"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Gameover" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_or4n3")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 112.0
+offset_top = 184.0
+offset_right = 368.0
+offset_bottom = 232.0
+scale = Vector2(1.24962, 1.24962)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_djkpf")
+theme_override_font_sizes/font_size = 40
+text = "Fin del juego"
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+process_mode = 3
+offset_left = 24.0
+offset_top = 352.0
+offset_right = 422.0
+offset_bottom = 465.0
+scale = Vector2(1.20436, 1.20436)
+
+[node name="MenuPrin" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 2
+offset_left = 6.64253
+offset_top = 13.2851
+offset_right = 386.643
+offset_bottom = 99.2849
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_djkpf")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_5er6c")
+text = "Menu"
+
+[connection signal="pressed" from="CanvasLayer/Panel/MenuPrin" to="CanvasLayer" method="_on_menu_pressed"]

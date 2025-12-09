@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dipwouo0r8nmu"]
+[gd_scene load_steps=22 format=3 uid="uid://dipwouo0r8nmu"]
 
 [ext_resource type="Texture2D" uid="uid://coe7g3xy36n1v" path="res://Assets/FONDOS/fajrbackground.png" id="1_bkatu"]
 [ext_resource type="Texture2D" uid="uid://biv1wytkw6cld" path="res://Assets/FONDOS/Escena terminada.png" id="2_fig0l"]
-[ext_resource type="Script" path="res://Mundo/mundo.gd" id="3_24oc2"]
 [ext_resource type="Texture2D" uid="uid://drnjn41hf6ute" path="res://Assets/FONDOS/muelle.png" id="3_ce1v2"]
 [ext_resource type="Script" uid="uid://naf3ap7bxhj1" path="res://Mundo/otter.gd" id="4_n4c2b"]
 [ext_resource type="Script" uid="uid://btte01uej7adl" path="res://Mundo/rod.gd" id="5_ce1v2"]
@@ -63,7 +62,6 @@ expand_mode = 5
 stretch_mode = 6
 
 [node name="Mundo" type="Node2D" parent="."]
-script = ExtResource("3_24oc2")
 
 [node name="Spawner" type="Node2D" parent="Mundo"]
 z_index = 80

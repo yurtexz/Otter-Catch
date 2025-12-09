@@ -23,6 +23,7 @@ buses/default_bus_layout=""
 
 MusicController="*res://Mundo/music_controller.tscn"
 Network="*res://Multijugador/Scripts/Network.gd"
+ScoreManager="*res://Otter-Catch/ScoreManager.gd"
 
 [display]
 
@@ -44,6 +45,8 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_2="Pelota"
 2d_physics/layer_3="Anzuelo"
 2d_physics/layer_4="Pescados"
+2d_physics/layer_5="Cuerda"
+2d_physics/layer_6="Buzo"
 
 [rendering]
 

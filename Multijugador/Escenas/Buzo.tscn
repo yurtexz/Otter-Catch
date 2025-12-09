@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ty0ca2qv3dn4"]
+
+[ext_resource type="Script" uid="uid://endw3ix0vhyl" path="res://Multijugador/Scripts/buzo.gd" id="1_hgn43"]
+[ext_resource type="Texture2D" uid="uid://ca8281w45r515" path="res://Assets/Enemigos/pixil-frame-0.png" id="2_1p4dq"]
+[ext_resource type="Texture2D" uid="uid://bqufte8ipunio" path="res://Assets/Enemigos/pixil-frame-1.png" id="3_xbx2x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avrt6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1p4dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xbx2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0knk"]
+size = Vector2(141, 64)
+
+[node name="Buzo" type="Area2D"]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_hgn43")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(173.5, 189.5)
+scale = Vector2(7.09, 7.09)
+sprite_frames = SubResource("SpriteFrames_avrt6")
+frame_progress = 0.669295
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(142.5, 120)
+shape = SubResource("RectangleShape2D_k0knk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

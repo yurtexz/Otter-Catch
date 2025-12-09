@@ -8,71 +8,135 @@ const PING_INTERVAL := 10.0
 var player_name := ""
 var game_id := ""
 var game_key := ""
+var my_id := ""
 var match_id := ""
-signal mensaje_recibido(msg)
+signal mensaje_recibido(msg: String)
 signal conectado_servidor()
 
+
+# ===========================================================
+# INICIAR NETWORK
+# ===========================================================
 func iniciar(nombre, gameId, gameKey):
 	player_name = nombre
 	game_id = gameId
 	game_key = gameKey
 	_conectar()
 
+
+# ===========================================================
+# LOOP PRINCIPAL DEL SOCKET (ÚNICO poll DEL JUEGO)
+# ===========================================================
 func _process(delta):
 	if not conectado:
 		return
 
-	# Mantener viva la conexión
+	# --- KEEP ALIVE ---
 	ping_timer += delta
 	if ping_timer >= PING_INTERVAL:
 		ping_timer = 0.0
 		_enviar({"event": "ping"})
-		print("📡 [NETWORK] Ping keep-alive")
+		print(":satellite: [NETWORK] Ping keep-alive")
 
+	# --- LEER MENSAJES ---
 	ws.poll()
+
 	while ws.get_available_packet_count() > 0:
 		var msg := ws.get_packet().get_string_from_utf8()
+		print(":inbox_tray: [NETWORK RAW]: ", msg)
+		# FORWARD al resto del juego
 		emit_signal("mensaje_recibido", msg)
 
+		# Debug opcional:
+		print(":incoming_envelope: [NETWORK] Recibido:", msg)
+
+	# --- SI EL SOCKET SE CIERRA ---
 	if ws.get_ready_state() == WebSocketPeer.STATE_CLOSED:
-		print("⚠️ [NETWORK] WebSocket cerrado. Reintentando...")
+		print(":warning: [NETWORK] WebSocket cerrado. Reintentando...")
 		conectado = false
 		_reconectar()
 
+
+# ===========================================================
+# CONECTAR
+# ===========================================================
 func _conectar():
 	var url := "ws://cross-game-ucn.martux.cl:4010/?gameId=%s&playerName=%s" % [game_id, player_name]
-	print("🌐 [NETWORK] Conectando a:", url)
+
+	print(":globe_with_meridians: [NETWORK] Conectando a:", url)
+
 	var err := ws.connect_to_url(url)
+
 	if err == OK:
 		conectado = true
+		print(":green_circle: [NETWORK] Conectado correctamente")
 		emit_signal("conectado_servidor")
 	else:
-		print("❌ Error conectando. Reintento en 1 segundo…")
+		print(":x: [NETWORK] Error conectando. Reintentando...")
 		await get_tree().create_timer(1).timeout
 		_conectar()
+
 
 func _reconectar():
 	await get_tree().create_timer(1).timeout
 	_conectar()
 
+
+# ===========================================================
+# ENVIAR MENSAJES CRUDOS
+# ===========================================================
 func _enviar(dic: Dictionary):
 	if not conectado:
+		print(":x: [NETWORK] Intento de envío sin conexión")
 		return
+
 	ws.send_text(JSON.stringify(dic))
 
-func apagar():
-	print("🛑 [NETWORK] Apagando conexión…")
 
-	# detener ping/reintentos
+# ===========================================================
+# APAGAR
+# ===========================================================
+func apagar():
+	print(":octagonal_sign: [NETWORK] Apagando conexión…")
+
 	conectado = false
 	ping_timer = 0.0
 
-	# si el socket sigue abierto → cierre limpio
 	if ws and ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
-		print("📤 [NETWORK] Cerrando WebSocket con código 1000 (cierre limpio)")
+		print(":outbox_tray: [NETWORK] Cierre limpio WebSocket")
 		ws.close(1000, "User exit")
 	else:
-		print("⚠️ [NETWORK] Socket ya estaba cerrado")
+		print(":warning: [NETWORK] Socket ya estaba cerrado")
 
-	# 🔥 recrear el WebSocket tal como hacía Godot al destruir el nodo
 	ws = WebSocketPeer.new()
+
+
+# ===========================================================
+# ENVIAR EVENTOS DE JUEGO (ATAQUES, ETC)
+# ===========================================================
+func send_game_data(payload: Dictionary):
+
+	if ws == null:
+		print(":x: [NETWORK] ws es null, no envío:", payload)
+		return
+
+	if ws.get_ready_state() != WebSocketPeer.STATE_OPEN:
+		print(":x: [NETWORK] Socket no abierto, no envío:", payload)
+		return
+
+	if match_id == "":
+		print(":x: [NETWORK] No hay match_id, no envío evento")
+		return
+
+	var paquete := {
+		"event": "send-game-data",
+		"data": {
+			"matchId": match_id,
+			"payload": payload
+		}
+	}
+
+	var json := JSON.stringify(paquete)
+	print(":outbox_tray: [NETWORK] Enviando evento de juego:", json)
+
+	ws.send_text(json)

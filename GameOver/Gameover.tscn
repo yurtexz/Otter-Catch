@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7rsfeh5oyvdy"]
+[gd_scene load_steps=6 format=3 uid="uid://b7rsfeh5oyvdy"]
 
 [ext_resource type="Script" uid="uid://ldmwbnhtd8sx" path="res://GameOver/canvas_layer.gd" id="1_71px7"]
 [ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="2_qcxx8"]
+[ext_resource type="Script" uid="uid://8tcjl6hd67lr" path="res://GameOver/puntuacion_actual.gd" id="3_cfvrm"]
+[ext_resource type="Script" uid="uid://c4ce0piu3jc4q" path="res://GameOver/puntuacion_maxima.gd" id="4_h4r5l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5er6c"]
 bg_color = Color(1, 1, 1, 1)
@@ -18,10 +20,10 @@ shadow_offset = Vector2(0, 3.41)
 script = ExtResource("1_71px7")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 112.0
-offset_top = 184.0
-offset_right = 368.0
-offset_bottom = 232.0
+offset_left = 120.0
+offset_top = 96.0
+offset_right = 376.0
+offset_bottom = 144.0
 scale = Vector2(1.24962, 1.24962)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_qcxx8")
@@ -58,6 +60,28 @@ theme_override_fonts/font = ExtResource("2_qcxx8")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_5er6c")
 text = "Menu"
+
+[node name="PuntuacionActual" type="Label" parent="CanvasLayer"]
+offset_left = 168.0
+offset_top = 168.0
+offset_right = 472.0
+offset_bottom = 216.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qcxx8")
+theme_override_font_sizes/font_size = 40
+text = "tu puntaje  15"
+script = ExtResource("3_cfvrm")
+
+[node name="PuntuacionMaxima" type="Label" parent="CanvasLayer"]
+offset_left = 120.0
+offset_top = 232.0
+offset_right = 424.0
+offset_bottom = 280.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qcxx8")
+theme_override_font_sizes/font_size = 40
+text = "Mejor puntaje:"
+script = ExtResource("4_h4r5l")
 
 [connection signal="pressed" from="CanvasLayer/Panel/Reintentar" to="CanvasLayer" method="_on_retry_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/MenuPrin" to="CanvasLayer" method="_on_menu_pressed"]

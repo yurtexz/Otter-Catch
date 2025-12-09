@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwp18i75okfx4"
+path="res://.godot/imported/der otter.mp3-cfb6df9f6ca6f9e5ad9340a4d210cbee.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/der otter.mp3"
+dest_files=["res://.godot/imported/der otter.mp3-cfb6df9f6ca6f9e5ad9340a4d210cbee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

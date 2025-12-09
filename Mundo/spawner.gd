@@ -86,7 +86,3 @@ func _on_timer_timeout() -> void:
 	add_child(obj)
 
 	timer.start()
-
-
-func _on_beer_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

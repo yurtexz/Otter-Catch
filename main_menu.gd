@@ -31,9 +31,14 @@ func _on_settings_pressed():
 	# TODO: Abrir pantalla de configuración
 
 func _on_exit_pressed():
-	"""Cierra el juego"""
 	print("Cerrando juego...")
+
+	# Desactiva señales/timers que sigan llamando lógica
+	set_process(false)
+	set_process_input(false)
+	set_process_unhandled_input(false)
 	get_tree().quit()
+
 func _on_multyplayer_pressed():
 	"""Abre el  lobby multijugador"""
 	get_tree().change_scene_to_file("res://Multijugador/Escenas/Multijugador.tscn")
