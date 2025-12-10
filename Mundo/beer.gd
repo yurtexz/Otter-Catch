@@ -33,6 +33,7 @@ func _on_area_entered(area: Area2D) -> void:
 				# Si la nutria tiene la variable vida, la reducimos
 				if "vida" in otter:
 					otter.take_hit()
+					SfxControler.sonarCristal()
 
 		# Destruir la cerveza después del impacto
 		queue_free()

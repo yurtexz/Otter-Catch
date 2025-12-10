@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0d52p1soo6c4"]
+
+[ext_resource type="Texture2D" uid="uid://f1m6q0iht3r6" path="res://Assets/ucn_bg.png" id="1_xmp1s"]
+[ext_resource type="Script" uid="uid://bgb0hxtsrh0jw" path="res://Assets/Settings/Settings.gd" id="2_efsb6"]
+[ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="2_eph28"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eph28"]
+texture = ExtResource("1_xmp1s")
+modulate_color = Color(0.811765, 0.811765, 0.811765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efsb6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Settings" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -128.0
+offset_top = -8.0
+offset_right = 573.0
+offset_bottom = 779.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.03669, 1.24919)
+theme_override_styles/panel = SubResource("StyleBoxTexture_eph28")
+script = ExtResource("2_efsb6")
+
+[node name="Musica" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_left = 185.205
+offset_top = 281.783
+offset_right = 585.205
+offset_bottom = 393.783
+min_value = -80.0
+max_value = 0.0
+step = 0.1
+
+[node name="Sonido" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_left = 192.922
+offset_top = 393.855
+offset_right = 592.922
+offset_bottom = 505.855
+min_value = -80.0
+max_value = 0.0
+step = 0.1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 324.108
+offset_top = 288.187
+offset_right = 633.108
+offset_bottom = 352.187
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eph28")
+theme_override_font_sizes/font_size = 30
+text = "Musica"
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 324.108
+offset_top = 403.461
+offset_right = 633.108
+offset_bottom = 467.461
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eph28")
+theme_override_font_sizes/font_size = 30
+text = "Sonido
+"
+
+[node name="Button3" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 231.506
+offset_top = 518.736
+offset_right = 532.506
+offset_bottom = 595.736
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eph28")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_efsb6")
+text = "Volver"
+
+[connection signal="value_changed" from="Panel/Musica" to="Panel" method="_on_musica_value_changed"]
+[connection signal="value_changed" from="Panel/Sonido" to="Panel" method="_on_sonido_value_changed"]
+[connection signal="pressed" from="Panel/Button3" to="Panel" method="_on_button_3_pressed"]

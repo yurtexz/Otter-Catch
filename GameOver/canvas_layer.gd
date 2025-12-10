@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _ready():
-	return
+	SfxControler.perdiste()
 
 func _on_retry_pressed():
 	# recargar la escena actual

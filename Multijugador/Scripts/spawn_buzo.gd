@@ -11,5 +11,5 @@ func spawn_buzo():
 
 	# OPCIONAL: posición inicial del buzo
 	buzo.position = Vector2(0, 1150)
-
+	SfxControler.sonarBuzo()
 	return buzo

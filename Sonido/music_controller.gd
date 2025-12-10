@@ -1,16 +1,24 @@
 extends Node
 
-@onready var player := AudioStreamPlayer.new()
+@onready var player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 # Pre-carga tus canciones
-var music_menu := preload("res://Assets/music/mainmenusong.mp3")
-var music_nivel := preload("res://Assets/music/der otter.mp3")
+var music_menu := preload("res://Sonido/Musica/mainmenusong.mp3")
+var music_nivel := preload("res://Sonido/Musica/der otter.mp3")
+var music_volume := 0.0
 
 
 func _ready():
 	add_child(player)
 	# Detectar cambio de escena
 	get_tree().tree_changed.connect(_on_scene_changed)
+func _process(delta: float) -> void:
+	if not player.playing:
+		player.play()
+func set_music_volume(value: float):
+	music_volume = value
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
 
 
 func _on_scene_changed(data = null):

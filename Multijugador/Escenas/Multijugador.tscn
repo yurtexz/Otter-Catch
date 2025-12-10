@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjypd20aykudx"]
+[gd_scene load_steps=7 format=3 uid="uid://cjypd20aykudx"]
 
 [ext_resource type="Script" uid="uid://dsl1p3yreo66s" path="res://Multijugador/Scripts/Multijugador.gd" id="1_y7e6p"]
+[ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="2_h81ph"]
+[ext_resource type="Script" uid="uid://dpkogiq2wvd14" path="res://Multijugador/Scripts/nombres.gd" id="3_ni7w4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6jst"]
 bg_color = Color(0.25116, 0.0422789, 0.327632, 1)
@@ -141,3 +143,33 @@ scale = Vector2(1.18461, 1.45232)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_ni7w4")
 text = "Volver"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 704.0
+offset_right = 128.0
+offset_bottom = 744.0
+scale = Vector2(7.99102, 2.99045)
+script = ExtResource("3_ni7w4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2"]
+layout_mode = 0
+offset_left = 1.00112
+offset_right = 257.001
+offset_bottom = 87.0
+scale = Vector2(0.1466, 0.442582)
+
+[node name="Label" type="Label" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h81ph")
+text = "Ingrese su nombre"
+
+[node name="LineEdit" type="LineEdit" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+text = "Confirmar"
+
+[connection signal="pressed" from="Panel2/VBoxContainer/Button" to="Panel2" method="_on_button_pressed"]

@@ -12,7 +12,7 @@ extends Control
 
 
 # === CONFIGURACIÓN DEL JUEGO ===
-const MY_PLAYER_NAME := "pcjota"     # cambia esto en cada instancia
+var MY_PLAYER_NAME := "pcjota"     # cambia esto en cada instancia
 const MY_GAME_ID := "C"
 const MY_GAME_KEY := "GZZYPVSYXS"
 const MY_GAME_NAME := "Otter Catch"
@@ -27,16 +27,17 @@ var match_id: String = ""
 var match_status: String = "WAITING_PLAYERS"
 var jugadores_del_match: Array = []
 var invitador_id := ""
+@onready var panel2: Panel = $Panel2
 
 
 # === READY ===
 func _ready():
+	panel2.nombre_ingresado.connect(_on_nombre_ingresado)
 	label.text = "Modo Multijugador"
 	lobby.visible = false
 	_limpiar_todo()        
 	await get_tree().create_timer(0.2).timeout
-	_conectar_servidor()
-
+	
 	scroll.visible = false
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -44,7 +45,10 @@ func _ready():
 	btn_enviar.pressed.connect(_on_enviar_pressed)
 	btn_ver.pressed.connect(_on_ver_pressed)
 	volver.pressed.connect(_on_volver_pressed)
-	
+
+func _on_nombre_ingresado(nombre):
+	MY_PLAYER_NAME = nombre
+	print("Nombre recibido:", MY_PLAYER_NAME)
 
 # === CONEXIÓN ===
 func _conectar_servidor():

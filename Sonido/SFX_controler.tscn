@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfjop4sxrhjqw"]
+
+[ext_resource type="Script" uid="uid://hyef4vlg7bav" path="res://Sonido/sfx_controler.gd" id="1_y2jha"]
+[ext_resource type="AudioStream" uid="uid://dqpulsksf56vy" path="res://Sonido/Efectos/agua.MP3" id="2_4rqt0"]
+[ext_resource type="AudioStream" uid="uid://mkcwy8obw37c" path="res://Sonido/Efectos/caña.MP3" id="2_s1ath"]
+[ext_resource type="AudioStream" uid="uid://c6i08xikg138y" path="res://Sonido/Efectos/splorch.mp3" id="3_yw38o"]
+[ext_resource type="AudioStream" uid="uid://innnhgrbq8l" path="res://Sonido/Efectos/pop.mp3" id="4_4rqt0"]
+[ext_resource type="AudioStream" uid="uid://c1i4pi3ii6ufo" path="res://Sonido/Efectos/coin.MP3" id="5_yw38o"]
+[ext_resource type="AudioStream" uid="uid://dbdtbs8ysw3m" path="res://Sonido/Efectos/vidrioroto.MP3" id="7_lbo24"]
+[ext_resource type="AudioStream" uid="uid://dpxjxve45heux" path="res://Sonido/Efectos/burbujas.mp3" id="8_6nnpm"]
+[ext_resource type="AudioStream" uid="uid://t527qxajuufh" path="res://Sonido/Efectos/perder.mp3" id="9_s02n7"]
+
+[node name="SfxControler" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_y2jha")
+
+[node name="Agua" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4rqt0")
+bus = &"SFX"
+
+[node name="rod" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s1ath")
+bus = &"SFX"
+
+[node name="caca" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yw38o")
+bus = &"SFX"
+
+[node name="Recoger pez" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4rqt0")
+bus = &"SFX"
+
+[node name="Recoger dorado" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yw38o")
+bus = &"SFX"
+
+[node name="cristal roto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_lbo24")
+bus = &"SFX"
+
+[node name="spawn buzo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_6nnpm")
+bus = &"SFX"
+
+[node name="perder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_s02n7")
+bus = &"SFX"

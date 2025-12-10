@@ -1,5 +1,6 @@
 extends Node2D
 # Rod.gd — Cuerda + Carnada (Godot 4.x)
+@onready var otter: CharacterBody2D = $".."
 
 signal movement_finished(level: int)
 
@@ -43,13 +44,18 @@ func _redraw() -> void:
 	bait.global_position = end
 
 func lower_one_level() -> void:
+	if level == 0:
+		SfxControler.splash()
+
 	if level < level_lengths.size() - 1:
 		_set_level(level + 1)
+	SfxControler.canas()
+
 
 func raise_one_level() -> void:
 	if level > 0:
 		_set_level(level - 1)
-
+	SfxControler.canas()
 func _set_level(new_level: int) -> void:
 	level = clamp(new_level, 0, level_lengths.size() - 1)
 	var target := level_lengths[level]
@@ -71,8 +77,12 @@ func notify_fish_caught() -> void:
 	var cantidad:= 0
 	if(dorado_en):
 		cantidad = 10
+		if(otter.vida < 3):
+			otter.take_life()
+		SfxControler.pezcardorado()
 	else:
 		cantidad = 1
+		SfxControler.pezcar()
 	
 	fish_caught_count+=cantidad
 	var hud = get_tree().current_scene.get_node("UILayer/HUD")
@@ -80,9 +90,10 @@ func notify_fish_caught() -> void:
 		hud.set_fish_count(fish_caught_count)
 	var payload := {"type":"attack"}
 	ScoreManager.score += cantidad
-	if(fish_caught_count%5 == 0):
+	if(fish_caught_count%5 == 0 and dorado_en == false):
 		Network.send_game_data(payload)
-	
+	elif(dorado_en):
+		Network.send_game_data(payload)
 	
 	
 	

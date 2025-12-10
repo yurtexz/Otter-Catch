@@ -26,9 +26,7 @@ func _on_start_pressed():
 	get_tree().change_scene_to_file(GAME_SCENE)
 
 func _on_settings_pressed():
-	"""Abre configuración (por implementar)"""
-	print("Settings - Por implementar")
-	# TODO: Abrir pantalla de configuración
+	get_tree().change_scene_to_file("res://Assets/Settings/Settings.tscn")
 
 func _on_exit_pressed():
 	print("Cerrando juego...")
