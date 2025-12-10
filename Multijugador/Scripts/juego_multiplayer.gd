@@ -21,4 +21,24 @@ func _on_recive(msg: String):
 		if tipo == "attack":
 			var spawner = $Mundo/SpawnBuzo
 			spawner.spawn_buzo()
-		
+		if tipo == "defeat":
+			print("🏆 [MATCH] ¡Oponente se rindió! Victoria")
+			var payloadwin := {"VICTORY":"game-ended"}
+			SfxControler.clap()
+			Network.send_game_data(payloadwin)
+			var game_over_screen = load("res://Multijugador/Escenas/GameoverMult.tscn").instantiate()
+			var label = game_over_screen.get_node("CanvasLayer/Label")
+			label.text = "VICTORIA"
+			get_tree().current_scene.add_child(game_over_screen)
+			get_tree().paused = true
+			
+	if evento == "player-disconnected":
+		print("🏆 [MATCH] ¡Oponente se desconecto! Victoria")
+		var payloadwin := {"VICTORY":"game-ended"}
+		Network.send_game_data(payloadwin)
+		SfxControler.clap()
+		var game_over_screen = load("res://Multijugador/Escenas/GameoverMult.tscn").instantiate()
+		var label = game_over_screen.get_node("CanvasLayer/Label")
+		label.text = "VICTORIA"
+		get_tree().current_scene.add_child(game_over_screen)
+		get_tree().paused = true

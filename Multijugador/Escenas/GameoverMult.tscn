@@ -18,9 +18,9 @@ shadow_offset = Vector2(0, 3.41)
 script = ExtResource("1_or4n3")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 112.0
+offset_left = 168.0
 offset_top = 184.0
-offset_right = 368.0
+offset_right = 424.0
 offset_bottom = 232.0
 scale = Vector2(1.24962, 1.24962)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)

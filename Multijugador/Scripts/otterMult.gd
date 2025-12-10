@@ -204,7 +204,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		SfxControler.sonarCaca()
 func game_over():
 	# Pausar todo el juego
+	var payload := {"type":"defeat"}
+	Network.send_game_data(payload)
 	var game_over_screen = load("res://Multijugador/Escenas/GameoverMult.tscn").instantiate()
+	var label = game_over_screen.get_node("CanvasLayer/Label")
+	label.text = "PERDISTE"
+	SfxControler.perdiste()
+	
 	get_tree().current_scene.add_child(game_over_screen)
 	get_tree().paused = true
 	

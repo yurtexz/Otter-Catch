@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0d52p1soo6c4"]
 
 [ext_resource type="Texture2D" uid="uid://f1m6q0iht3r6" path="res://Assets/ucn_bg.png" id="1_xmp1s"]
-[ext_resource type="Script" uid="uid://bgb0hxtsrh0jw" path="res://Assets/Settings/Settings.gd" id="2_efsb6"]
+[ext_resource type="Script" uid="uid://bgb0hxtsrh0jw" path="res://Settings/Settings.gd" id="2_efsb6"]
 [ext_resource type="FontFile" uid="uid://2koqa65t8i4b" path="res://Assets/connection_ii/ConnectionII.otf" id="2_eph28"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eph28"]
@@ -18,6 +18,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
 [node name="Settings" type="Node2D"]
+script = ExtResource("2_efsb6")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -128.0
@@ -28,7 +29,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.03669, 1.24919)
 theme_override_styles/panel = SubResource("StyleBoxTexture_eph28")
-script = ExtResource("2_efsb6")
 
 [node name="Musica" type="HSlider" parent="Panel"]
 layout_mode = 0
@@ -88,6 +88,6 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_efsb6")
 text = "Volver"
 
-[connection signal="value_changed" from="Panel/Musica" to="Panel" method="_on_musica_value_changed"]
-[connection signal="value_changed" from="Panel/Sonido" to="Panel" method="_on_sonido_value_changed"]
-[connection signal="pressed" from="Panel/Button3" to="Panel" method="_on_button_3_pressed"]
+[connection signal="value_changed" from="Panel/Musica" to="." method="_on_musica_value_changed"]
+[connection signal="value_changed" from="Panel/Sonido" to="." method="_on_sonido_value_changed"]
+[connection signal="pressed" from="Panel/Button3" to="." method="_on_button_3_pressed"]

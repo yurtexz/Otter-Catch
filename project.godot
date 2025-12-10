@@ -21,9 +21,9 @@ buses/default_bus_layout="uid://cq45r30yfdvb5"
 
 [autoload]
 
-MusicController="*res://Sonido/music_controller.tscn"
-Network="*res://Multijugador/Scripts/Network.gd"
 ScoreManager="*res://Otter-Catch/ScoreManager.gd"
+Network="*res://Multijugador/Scripts/Network.gd"
+MusicController="*res://Sonido/music_controller.tscn"
 SfxControler="*res://Sonido/SFX_controler.tscn"
 
 [display]

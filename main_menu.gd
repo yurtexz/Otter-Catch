@@ -20,14 +20,16 @@ func _ready():
 	exit_button.pressed.connect(_on_exit_pressed)
 	multiplayer_button.pressed.connect(_on_multyplayer_pressed)
 
+
 func _on_start_pressed():
 	"""Inicia el juego"""
 	print("Iniciando juego...")
 	get_tree().change_scene_to_file(GAME_SCENE)
 
 func _on_settings_pressed():
-	get_tree().change_scene_to_file("res://Assets/Settings/Settings.tscn")
-
+	var escena = preload("res://Settings/Settings.gd")
+	get_tree().change_scene_to_file("res://Settings/Settings.tscn")
+	
 func _on_exit_pressed():
 	print("Cerrando juego...")
 

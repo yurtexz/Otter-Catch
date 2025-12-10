@@ -1,9 +1,10 @@
-extends Panel
-@onready var musica: HSlider = $Musica
-@onready var sonido: HSlider = $Sonido
+extends Node
+@onready var musica: HSlider = $Panel/Musica
+@onready var sonido: HSlider = $Panel/Sonido
 
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
 	musica.value = MusicController.music_volume
 	sonido.value = SfxControler.sfx_volume

@@ -38,3 +38,5 @@ func _on_AreaCuerda(area: Area2D) -> void:
 			rod.fish_hooked.queue_free()
 		var jugador = rod.get_parent()
 		jugador.take_hit()
+		SfxControler.cortar()
+		

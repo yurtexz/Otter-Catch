@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfjop4sxrhjqw"]
+[gd_scene load_steps=12 format=3 uid="uid://cfjop4sxrhjqw"]
 
 [ext_resource type="Script" uid="uid://hyef4vlg7bav" path="res://Sonido/sfx_controler.gd" id="1_y2jha"]
 [ext_resource type="AudioStream" uid="uid://dqpulsksf56vy" path="res://Sonido/Efectos/agua.MP3" id="2_4rqt0"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://dbdtbs8ysw3m" path="res://Sonido/Efectos/vidrioroto.MP3" id="7_lbo24"]
 [ext_resource type="AudioStream" uid="uid://dpxjxve45heux" path="res://Sonido/Efectos/burbujas.mp3" id="8_6nnpm"]
 [ext_resource type="AudioStream" uid="uid://t527qxajuufh" path="res://Sonido/Efectos/perder.mp3" id="9_s02n7"]
+[ext_resource type="AudioStream" uid="uid://cs0h3ex3iqqpy" path="res://Sonido/Efectos/corte.MP3" id="10_6l51d"]
+[ext_resource type="AudioStream" uid="uid://bpdy5q6k7v3vr" path="res://Sonido/Efectos/win.mp3" id="11_min16"]
 
 [node name="SfxControler" type="Node2D"]
 process_mode = 3
@@ -44,4 +46,12 @@ bus = &"SFX"
 
 [node name="perder" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_s02n7")
+bus = &"SFX"
+
+[node name="corte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6l51d")
+bus = &"SFX"
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_min16")
 bus = &"SFX"
