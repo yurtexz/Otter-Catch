@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://drnjn41hf6ute" path="res://Assets/FONDOS/muelle.png" id="8_06p5n"]
 [ext_resource type="Script" uid="uid://bwmttqdlgpb1x" path="res://Multijugador/Scripts/otterMult.gd" id="9_onwhc"]
 [ext_resource type="Script" uid="uid://bdpsaon2865od" path="res://Multijugador/Scripts/line.gd" id="10_mapcg"]
-[ext_resource type="Script" path="res://Mundo/rod.gd" id="10_x57gw"]
+[ext_resource type="Script" uid="uid://btte01uej7adl" path="res://Mundo/rod.gd" id="10_x57gw"]
 [ext_resource type="Texture2D" uid="uid://scncyqqnfmm1" path="res://Assets/nutria/carnada.png" id="11_nr37c"]
 [ext_resource type="Texture2D" uid="uid://bshsstqisp30x" path="res://Assets/nutria/Ottis.png" id="12_lm1h3"]
 [ext_resource type="Script" path="res://Mundo/hud.gd" id="13_5ybr1"]
@@ -241,5 +241,14 @@ position = Vector2(354.408, 82.2436)
 scale = Vector2(5.78762, 3.67682)
 texture = ExtResource("19_wlvsp")
 
+[node name="Salir" type="Button" parent="."]
+offset_left = 1265.0
+offset_top = 16.0
+offset_right = 1437.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 40
+text = "Salir"
+
 [connection signal="area_entered" from="Mundo/Otter/Rod/AreaCuerda" to="Mundo/Otter/Rod/Line" method="_on_AreaCuerda"]
 [connection signal="area_entered" from="Mundo/Otter/Area2D" to="Mundo/Otter" method="_on_area_2d_area_entered"]
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]

@@ -13,7 +13,6 @@ extends CharacterBody2D
 @onready var cor1 := $"../../RedHeart16x16"
 @onready var cor2 := $"../../RedHeart16x17"
 @onready var cor3 := $"../../RedHeart16x18"
-
 # Umbrales del gesto
 const SWIPE_TIME_MAX := 0.60
 const SWIPE_RATIO_MAX := 0.8

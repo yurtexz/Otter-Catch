@@ -13,7 +13,6 @@ signal movement_finished(level: int)
 @onready var bait: Node2D = $Bait
 var fish_hooked: Area2D = null
 var dorado_en:= false
-
 var level := 0            # 0 = retraída, 1 = media, 2 = profunda
 var rope_len := 0.0
 var tween: Tween
@@ -44,6 +43,7 @@ func _redraw() -> void:
 	bait.global_position = end
 
 func lower_one_level() -> void:
+
 	if level == 0:
 		SfxControler.splash()
 
