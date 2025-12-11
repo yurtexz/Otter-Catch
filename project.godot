@@ -21,7 +21,7 @@ buses/default_bus_layout="uid://cq45r30yfdvb5"
 
 [autoload]
 
-ScoreManager="*res://Otter-Catch/ScoreManager.gd"
+ScoreManager="*res://ScoreManager.gd"
 Network="*res://Multijugador/Scripts/Network.gd"
 MusicController="*res://Sonido/music_controller.tscn"
 SfxControler="*res://Sonido/SFX_controler.tscn"
