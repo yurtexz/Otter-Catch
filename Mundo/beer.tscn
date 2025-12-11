@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cf7nsj1q6xhad"]
 
-[ext_resource type="Script" uid="uid://bekbm326j56ia" path="res://Mundo/beer.gd" id="1_jtq0t"]
+[ext_resource type="Script" path="res://Mundo/beer.gd" id="1_jtq0t"]
 [ext_resource type="Texture2D" uid="uid://dxu0y38vh5doy" path="res://Assets/Enemigos/Cerveza cristal.png" id="2_lkdib"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jtq0t"]
